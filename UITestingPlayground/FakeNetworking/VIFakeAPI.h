@@ -10,10 +10,18 @@
 
 typedef void (^VIFakeAPICompletion)(BOOL success, NSError *error);
 
+FOUNDATION_EXPORT NSString * const VIValidLoginUserName;
+FOUNDATION_EXPORT NSString * const VIValidLoginPassword;
+
 @interface VIFakeAPI : NSObject
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion;
 
 - (void)networkFailureLoginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion;
+
+//Exposed for unit testing
++ (NSString *)networkFailError;
++ (NSString *)invalidUsernameError;
++ (NSString *)invalidPasswordError;
 
 @end

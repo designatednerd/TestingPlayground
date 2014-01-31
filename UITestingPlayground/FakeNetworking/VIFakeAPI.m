@@ -30,13 +30,13 @@ NSTimeInterval const VIResponseDelay = 2.0f;
         [self performSelector:@selector(loginSuccess) withObject:nil afterDelay:VIResponseDelay];
     } else if ([self isUsernameValid:username] //Valid username
                && ![self isPasswordValid:password]) { //and invalid password
-        [self performSelector:@selector(loginFailure:) withObject:[self invalidPasswordError] afterDelay:VIResponseDelay];
+        [self performSelector:@selector(loginFailure:) withObject:[VIFakeAPI invalidPasswordError] afterDelay:VIResponseDelay];
     } else if ([self isPasswordValid:password] //Valid password
                && ![self isUsernameValid:username]) { //and invalid username
-        [self performSelector:@selector(loginFailure:) withObject:[self invalidUsernameError] afterDelay:VIResponseDelay];
+        [self performSelector:@selector(loginFailure:) withObject:[VIFakeAPI invalidUsernameError] afterDelay:VIResponseDelay];
     } else if (![self isPasswordValid:password] //Invalid password
                && ![self isUsernameValid:username]) { //and invalid username
-        NSString *bothFailures = [NSString stringWithFormat:@"%@\n%@", [self invalidUsernameError], [self invalidPasswordError]];
+        NSString *bothFailures = [NSString stringWithFormat:@"%@\n%@", [VIFakeAPI invalidUsernameError], [VIFakeAPI invalidPasswordError]];
         [self performSelector:@selector(loginFailure:) withObject:bothFailures afterDelay:VIResponseDelay];
     } else {
         NSAssert(NO, @"Unexpected fall-through in %@: UN: %@ PW: %@", NSStringFromSelector(_cmd), username, password);
@@ -46,7 +46,7 @@ NSTimeInterval const VIResponseDelay = 2.0f;
 - (void)networkFailureLoginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion
 {
     self.completion = completion;
-    
+    [self performSelector:@selector(loginFailure:) withObject:[VIFakeAPI networkFailError] afterDelay:VIResponseDelay * 3];
 }
 
 #pragma mark - Validation
@@ -61,17 +61,17 @@ NSTimeInterval const VIResponseDelay = 2.0f;
 }
 
 #pragma mark - Error strings
-- (NSString *)invalidPasswordError
++ (NSString *)invalidPasswordError
 {
     return NSLocalizedString(@"Your password was incorrect, please try again", @"Incorrect password error message");
 }
 
-- (NSString *)invalidUsernameError
++ (NSString *)invalidUsernameError
 {
     return NSLocalizedString(@"Your username was incorrect, please try again", @"Incorrect username error");
 }
 
-- (NSString *)networkFailError
++ (NSString *)networkFailError
 {
     return NSLocalizedString(@"Could not reach the server", @"Network failure error");
 }

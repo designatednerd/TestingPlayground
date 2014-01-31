@@ -23,6 +23,7 @@
 		33BCBF92189C451C00479904 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33BCBF90189C451C00479904 /* InfoPlist.strings */; };
 		33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */; };
 		33BCBF9F189C47E600479904 /* VIFakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF9E189C47E600479904 /* VIFakeAPI.m */; };
+		33BCBFA3189C50A900479904 /* XCTAsyncTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITestingPlaygroundTests_NonUI.m; sourceTree = "<group>"; };
 		33BCBF9D189C47E600479904 /* VIFakeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIFakeAPI.h; path = FakeNetworking/VIFakeAPI.h; sourceTree = "<group>"; };
 		33BCBF9E189C47E600479904 /* VIFakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIFakeAPI.m; path = FakeNetworking/VIFakeAPI.m; sourceTree = "<group>"; };
+		33BCBFA1189C50A900479904 /* XCTAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTAsyncTestCase.h; path = "UITestingPlayground/Lib/xctest-additions/XCTAsyncTestCase.h"; sourceTree = SOURCE_ROOT; };
+		33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCTAsyncTestCase.m; path = "UITestingPlayground/Lib/xctest-additions/XCTAsyncTestCase.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,7 @@
 		33BCBF8D189C451C00479904 /* UITestingPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
+				33BCBFA0189C504300479904 /* xctest-addtions */,
 				33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */,
 				33BCBF8E189C451C00479904 /* Supporting Files */,
 			);
@@ -158,6 +162,15 @@
 				33BCBF90189C451C00479904 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33BCBFA0189C504300479904 /* xctest-addtions */ = {
+			isa = PBXGroup;
+			children = (
+				33BCBFA1189C50A900479904 /* XCTAsyncTestCase.h */,
+				33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */,
+			);
+			name = "xctest-addtions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33BCBFA3189C50A900479904 /* XCTAsyncTestCase.m in Sources */,
 				33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

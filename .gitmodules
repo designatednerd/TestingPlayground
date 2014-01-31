@@ -1,0 +1,3 @@
+[submodule "UITestingPlayground/Lib/xctest-additions"]
+	path = UITestingPlayground/Lib/xctest-additions
+	url = https://github.com/iheartradio/xctest-additions.git
