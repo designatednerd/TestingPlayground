@@ -21,7 +21,8 @@
 		33BCBF89189C451C00479904 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF65189C451C00479904 /* Foundation.framework */; };
 		33BCBF8A189C451C00479904 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF69189C451C00479904 /* UIKit.framework */; };
 		33BCBF92189C451C00479904 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33BCBF90189C451C00479904 /* InfoPlist.strings */; };
-		33BCBF94189C451C00479904 /* UITestingPlaygroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF93189C451C00479904 /* UITestingPlaygroundTests.m */; };
+		33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */; };
+		33BCBF9F189C47E600479904 /* VIFakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF9E189C47E600479904 /* VIFakeAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,9 @@
 		33BCBF87189C451C00479904 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		33BCBF8F189C451C00479904 /* UITestingPlaygroundTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITestingPlaygroundTests-Info.plist"; sourceTree = "<group>"; };
 		33BCBF91189C451C00479904 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		33BCBF93189C451C00479904 /* UITestingPlaygroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITestingPlaygroundTests.m; sourceTree = "<group>"; };
+		33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITestingPlaygroundTests_NonUI.m; sourceTree = "<group>"; };
+		33BCBF9D189C47E600479904 /* VIFakeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIFakeAPI.h; path = FakeNetworking/VIFakeAPI.h; sourceTree = "<group>"; };
+		33BCBF9E189C47E600479904 /* VIFakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIFakeAPI.m; path = FakeNetworking/VIFakeAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				33BCBF7E189C451C00479904 /* VIViewController.m */,
 				33BCBF80189C451C00479904 /* Images.xcassets */,
 				33BCBF6C189C451C00479904 /* Supporting Files */,
+				33BCBF9D189C47E600479904 /* VIFakeAPI.h */,
+				33BCBF9E189C47E600479904 /* VIFakeAPI.m */,
 			);
 			path = UITestingPlayground;
 			sourceTree = "<group>";
@@ -140,7 +145,7 @@
 		33BCBF8D189C451C00479904 /* UITestingPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
-				33BCBF93189C451C00479904 /* UITestingPlaygroundTests.m */,
+				33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */,
 				33BCBF8E189C451C00479904 /* Supporting Files */,
 			);
 			path = UITestingPlaygroundTests;
@@ -256,6 +261,7 @@
 			files = (
 				33BCBF72189C451C00479904 /* main.m in Sources */,
 				33BCBF7F189C451C00479904 /* VIViewController.m in Sources */,
+				33BCBF9F189C47E600479904 /* VIFakeAPI.m in Sources */,
 				33BCBF76189C451C00479904 /* VIAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BCBF94189C451C00479904 /* UITestingPlaygroundTests.m in Sources */,
+				33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

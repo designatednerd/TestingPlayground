@@ -9,7 +9,8 @@
 #import "VIViewController.h"
 
 @interface VIViewController ()
-
+@property (nonatomic, weak) IBOutlet UITextField *usernameTextField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 @end
 
 @implementation VIViewController

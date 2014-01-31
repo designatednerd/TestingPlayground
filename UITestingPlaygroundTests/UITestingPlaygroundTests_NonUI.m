@@ -8,11 +8,12 @@
 
 #import <XCTest/XCTest.h>
 
-@interface UITestingPlaygroundTests : XCTestCase
+#import "VIFakeAPI.h"
 
+@interface UITestingPlaygroundTests_NonUI : XCTestCase
 @end
 
-@implementation UITestingPlaygroundTests
+@implementation UITestingPlaygroundTests_NonUI
 
 - (void)setUp
 {
@@ -26,9 +27,12 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testFakeAPIValidLogin
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    VIFakeAPI *fakeAPI = [[VIFakeAPI alloc] init];
+    
 }
+
+
 
 @end
