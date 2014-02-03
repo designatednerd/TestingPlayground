@@ -114,13 +114,23 @@ NSInteger const VIPasswordMinCharacters = 6;
     }
 }
 
++ (NSString *)errorUsernameNotEmpty
+{
+    return NSLocalizedString(@"Username must not be empty.", @"Username must not be empty");
+}
+
++ (NSString *)errorUsernameMustBeEmail
+{
+    return NSLocalizedString(@"Username must be an email address.", @"Username must be an email address");
+}
+
 - (NSString *)usernameErrorString
 {
     NSMutableString *errorString = [NSMutableString string];
     NSString *username = self.usernameTextField.text;
     
     if (username.length == 0) {
-        [errorString appendString:NSLocalizedString(@"Username must not be empty.", @"Username must not be empty")];
+        [errorString appendString:[VIViewController errorUsernameNotEmpty]];
     }
     
     //This should normally be some sort of regex.
@@ -129,7 +139,7 @@ NSInteger const VIPasswordMinCharacters = 6;
         if (errorString.length > 0) {
             [errorString appendString:@"\n"];
         }
-        [errorString appendString:NSLocalizedString(@"Username must be an email address.", @"Username must be an email address")];
+        [errorString appendString:[VIViewController errorUsernameMustBeEmail]];
     }
     
     if (errorString.length > 0) {
@@ -141,13 +151,18 @@ NSInteger const VIPasswordMinCharacters = 6;
     }
 }
 
++ (NSString *)errorPasswordTooShort
+{
+    return [NSString stringWithFormat:NSLocalizedString(@"Password must be at least %d characters.", @"Password length request"), VIPasswordMinCharacters];
+}
+
 - (NSString *)passwordErrorString
 {
     NSMutableString *errorString = [NSMutableString string];
 
     NSString *password = self.passwordTextField.text;
     if (password.length < VIPasswordMinCharacters) {
-        [errorString appendFormat:NSLocalizedString(@"Password must be at least %d characters.", @"Password length request"), VIPasswordMinCharacters];
+        [errorString appendString:[VIViewController errorPasswordTooShort]];
     }
 
     if (errorString.length > 0) {

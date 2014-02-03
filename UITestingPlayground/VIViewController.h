@@ -19,4 +19,10 @@ FOUNDATION_EXPORT NSString * const VIAccessibilityErrorTextLabel;
 
 @interface VIViewController : UIViewController
 
+
+//For unit testing
++ (NSString *)errorUsernameNotEmpty;
++ (NSString *)errorUsernameMustBeEmail;
++ (NSString *)errorPasswordTooShort;
+
 @end
