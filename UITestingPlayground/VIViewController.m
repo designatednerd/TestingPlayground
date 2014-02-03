@@ -19,7 +19,7 @@ NSString * const VIAccessibilityErrorTextLabel = @"Error Text Label";
 
 NSInteger const VIPasswordMinCharacters = 6;
 
-@interface VIViewController ()
+@interface VIViewController () <UITextFieldDelegate>
 @property (nonatomic, weak) IBOutlet UITextField *usernameTextField;
 @property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 @property (nonatomic, weak) IBOutlet UIView *usernameErrorView;
@@ -78,7 +78,19 @@ NSInteger const VIPasswordMinCharacters = 6;
     }
 }
 
-#pragma mark - Login handling
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.usernameTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    } else if (textField == self.passwordTextField) {
+        [self.view endEditing:YES];
+    }
+    
+    return NO;
+}
+
+#pragma mark - Error handling
 - (NSString *)inputErrorString
 {
     NSMutableString *errorString = [NSMutableString string];
@@ -114,6 +126,9 @@ NSInteger const VIPasswordMinCharacters = 6;
     //This should normally be some sort of regex.
     NSRange atRange = [username rangeOfString:@"@"];
     if (atRange.location == NSNotFound) {
+        if (errorString.length > 0) {
+            [errorString appendString:@"\n"];
+        }
         [errorString appendString:NSLocalizedString(@"Username must be an email address.", @"Username must be an email address")];
     }
     
@@ -144,6 +159,7 @@ NSInteger const VIPasswordMinCharacters = 6;
     }
 }
 
+#pragma mark - Login handling
 - (void)loginSuccess
 {
     self.passwordErrorView.hidden = YES;

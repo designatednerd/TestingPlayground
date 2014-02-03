@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+//Exposed externally for UI testing
+FOUNDATION_EXPORT NSString * const VIAccessibilityUsernameTextField;
+FOUNDATION_EXPORT NSString * const VIAccessibilityPasswordTextField;
+FOUNDATION_EXPORT NSString * const VIAccessibilityUsernameErrorView;
+FOUNDATION_EXPORT NSString * const VIAccessibilityPasswordErrorView;
+FOUNDATION_EXPORT NSString * const VIAccessibilityLoginButton;
+FOUNDATION_EXPORT NSString * const VIAccessibilityErrorTextLabel;
+
+
 @interface VIViewController : UIViewController
 
 @end

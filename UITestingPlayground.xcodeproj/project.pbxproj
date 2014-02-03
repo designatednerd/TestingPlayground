@@ -148,6 +148,7 @@
 		33BCBF8D189C451C00479904 /* UITestingPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
+				33FC5B11189FF5BD0027ED82 /* KIF */,
 				33BCBFA0189C504300479904 /* xctest-addtions */,
 				33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */,
 				33BCBF8E189C451C00479904 /* Supporting Files */,
@@ -171,6 +172,13 @@
 				33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */,
 			);
 			name = "xctest-addtions";
+			sourceTree = "<group>";
+		};
+		33FC5B11189FF5BD0027ED82 /* KIF */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = KIF;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -495,6 +503,7 @@
 				33BCBF99189C451C00479904 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33BCBF9A189C451C00479904 /* Build configuration list for PBXNativeTarget "UITestingPlaygroundTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +512,7 @@
 				33BCBF9C189C451C00479904 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
