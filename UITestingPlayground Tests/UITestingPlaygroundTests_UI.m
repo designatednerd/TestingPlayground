@@ -20,6 +20,8 @@
 - (void)beforeEach
 {
     [super beforeEach];
+    [tester clearTextFromViewWithAccessibilityLabel:VIAccessibilityPasswordTextField];
+    [tester clearTextFromViewWithAccessibilityLabel:VIAccessibilityUsernameTextField];
 
 }
 
@@ -52,7 +54,7 @@
 
 - (void)testInvalidUsername
 {
-    [tester enterText:@"NOPE" intoViewWithAccessibilityLabel:VIAccessibilityUsernameTextField];
+    [tester enterText:@"Nope" intoViewWithAccessibilityLabel:VIAccessibilityUsernameTextField];
     [tester enterText:VIValidLoginPassword intoViewWithAccessibilityLabel:VIAccessibilityPasswordTextField];
     [tester tapViewWithAccessibilityLabel:VIAccessibilityLoginButton];
     
