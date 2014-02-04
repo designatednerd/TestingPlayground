@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3342F9FE18A1A0DB000578A9 /* UITestingPlaygroundTests_Localization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3342F9FD18A1A0DB000578A9 /* UITestingPlaygroundTests_Localization.m */; };
+		3342FA0118A1A8D7000578A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3342F9FF18A1A8D7000578A9 /* Localizable.strings */; };
+		3342FA0518A1A936000578A9 /* VILocalizedStringKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 3342FA0418A1A936000578A9 /* VILocalizedStringKeys.m */; };
 		33BCBF66189C451C00479904 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF65189C451C00479904 /* Foundation.framework */; };
 		33BCBF68189C451C00479904 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF67189C451C00479904 /* CoreGraphics.framework */; };
 		33BCBF6A189C451C00479904 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF69189C451C00479904 /* UIKit.framework */; };
@@ -73,6 +76,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3342F9FC18A19FFE000578A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3342F9FD18A1A0DB000578A9 /* UITestingPlaygroundTests_Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestingPlaygroundTests_Localization.m; sourceTree = "<group>"; };
+		3342FA0018A1A8D7000578A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3342FA0218A1A8E5000578A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3342FA0318A1A936000578A9 /* VILocalizedStringKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VILocalizedStringKeys.h; sourceTree = "<group>"; };
+		3342FA0418A1A936000578A9 /* VILocalizedStringKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VILocalizedStringKeys.m; sourceTree = "<group>"; };
 		33BCBF62189C451C00479904 /* UITestingPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITestingPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BCBF65189C451C00479904 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33BCBF67189C451C00479904 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -182,14 +191,16 @@
 			children = (
 				33BCBF74189C451C00479904 /* VIAppDelegate.h */,
 				33BCBF75189C451C00479904 /* VIAppDelegate.m */,
+				33BCBF9D189C47E600479904 /* VIFakeAPI.h */,
+				33BCBF9E189C47E600479904 /* VIFakeAPI.m */,
+				3342FA0318A1A936000578A9 /* VILocalizedStringKeys.h */,
+				3342FA0418A1A936000578A9 /* VILocalizedStringKeys.m */,
 				33BCBF77189C451C00479904 /* Main_iPhone.storyboard */,
 				33BCBF7A189C451C00479904 /* Main_iPad.storyboard */,
 				33BCBF7D189C451C00479904 /* VIViewController.h */,
 				33BCBF7E189C451C00479904 /* VIViewController.m */,
 				33BCBF80189C451C00479904 /* Images.xcassets */,
 				33BCBF6C189C451C00479904 /* Supporting Files */,
-				33BCBF9D189C47E600479904 /* VIFakeAPI.h */,
-				33BCBF9E189C47E600479904 /* VIFakeAPI.m */,
 			);
 			path = UITestingPlayground;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 			children = (
 				33BCBF6D189C451C00479904 /* UITestingPlayground-Info.plist */,
 				33BCBF6E189C451C00479904 /* InfoPlist.strings */,
+				3342F9FF18A1A8D7000578A9 /* Localizable.strings */,
 				33BCBF71189C451C00479904 /* main.m */,
 				33BCBF73189C451C00479904 /* UITestingPlayground-Prefix.pch */,
 			);
@@ -255,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				33FC5B3A189FF7310027ED82 /* UITestingPlaygroundTests_UI.m */,
+				3342F9FD18A1A0DB000578A9 /* UITestingPlaygroundTests_Localization.m */,
 				33FC5B35189FF7310027ED82 /* Supporting Files */,
 			);
 			path = "UITestingPlayground Tests";
@@ -351,6 +364,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 33BCBF59189C451C00479904;
 			productRefGroup = 33BCBF63189C451C00479904 /* Products */;
@@ -399,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3342FA0118A1A8D7000578A9 /* Localizable.strings in Resources */,
 				33BCBF7C189C451C00479904 /* Main_iPad.storyboard in Resources */,
 				33BCBF81189C451C00479904 /* Images.xcassets in Resources */,
 				33BCBF79189C451C00479904 /* Main_iPhone.storyboard in Resources */,
@@ -432,6 +447,7 @@
 				33BCBF72189C451C00479904 /* main.m in Sources */,
 				33BCBF7F189C451C00479904 /* VIViewController.m in Sources */,
 				33BCBF9F189C47E600479904 /* VIFakeAPI.m in Sources */,
+				3342FA0518A1A936000578A9 /* VILocalizedStringKeys.m in Sources */,
 				33BCBF76189C451C00479904 /* VIAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3342F9FE18A1A0DB000578A9 /* UITestingPlaygroundTests_Localization.m in Sources */,
 				33FC5B3B189FF7310027ED82 /* UITestingPlaygroundTests_UI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,10 +486,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3342F9FF18A1A8D7000578A9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3342FA0018A1A8D7000578A9 /* en */,
+				3342FA0218A1A8E5000578A9 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		33BCBF6E189C451C00479904 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				33BCBF6F189C451C00479904 /* en */,
+				3342F9FC18A19FFE000578A9 /* es */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

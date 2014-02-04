@@ -9,6 +9,7 @@
 #import "VIViewController.h"
 
 #import "VIFakeAPI.h"
+#import "VILocalizedStringKeys.h"
 
 NSString * const VIAccessibilityUsernameTextField = @"Username Text Field";
 NSString * const VIAccessibilityPasswordTextField = @"Password Text Field";
@@ -37,6 +38,7 @@ NSInteger const VIPasswordMinCharacters = 6;
     [super viewDidLoad];
 	self.fakeAPI = [[VIFakeAPI alloc] init];
     [self setupAccessibility];
+    [self localizeStrings];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,13 +58,18 @@ NSInteger const VIPasswordMinCharacters = 6;
     self.errorTextLabel.accessibilityLabel = VIAccessibilityErrorTextLabel;
 }
 
+- (void)localizeStrings
+{
+    [self.loginButton setTitle:NSLocalizedString(VI_LOGIN_GO_TEXT, @"login text") forState:UIControlStateNormal];
+}
+
 #pragma mark - IBActions
 - (IBAction)login
 {
     NSString *errorString = [self inputErrorString];
     if (!errorString) {
         self.errorTextLabel.hidden = YES;
-        [self.loginButton setTitle:NSLocalizedString(@"Logging In...", @"Logging in") forState:UIControlStateNormal];
+        [self.loginButton setTitle:NSLocalizedString(VI_LOGIN_LOGGING_IN_TEXT, @"Logging in") forState:UIControlStateNormal];
         self.loginButton.enabled = NO;
         self.loginButton.backgroundColor = [self.loginButton.backgroundColor colorWithAlphaComponent:0.5];
         [self.fakeAPI loginWithUsername:self.usernameTextField.text password:self.passwordTextField.text completion:^(BOOL success, NSError *error) {
@@ -116,12 +123,12 @@ NSInteger const VIPasswordMinCharacters = 6;
 
 + (NSString *)errorUsernameNotEmpty
 {
-    return NSLocalizedString(@"Username must not be empty.", @"Username must not be empty");
+    return NSLocalizedString(VI_LOGIN_USERNAME_NOT_EMPTY, @"Username must not be empty");
 }
 
 + (NSString *)errorUsernameMustBeEmail
 {
-    return NSLocalizedString(@"Username must be an email address.", @"Username must be an email address");
+    return NSLocalizedString(VI_LOGIN_USERNAME_MUST_BE_EMAIL, @"Username must be an email address");
 }
 
 - (NSString *)usernameErrorString
@@ -153,7 +160,7 @@ NSInteger const VIPasswordMinCharacters = 6;
 
 + (NSString *)errorPasswordTooShort
 {
-    return [NSString stringWithFormat:NSLocalizedString(@"Password must be at least %d characters.", @"Password length request"), VIPasswordMinCharacters];
+    return [NSString stringWithFormat:NSLocalizedString(VI_LOGIN_PASSWORD_LENGTH_FAIL_FORMAT, @"Password length request"), VIPasswordMinCharacters];
 }
 
 - (NSString *)passwordErrorString
@@ -180,7 +187,7 @@ NSInteger const VIPasswordMinCharacters = 6;
     self.passwordErrorView.hidden = YES;
     self.usernameErrorView.hidden = YES;
     self.errorTextLabel.hidden = YES;
-    [self.loginButton setTitle:@"Success!" forState:UIControlStateNormal];
+    [self.loginButton setTitle:NSLocalizedString(VI_LOGIN_SUCCESS, @"Successful Login") forState:UIControlStateNormal];
     
     //Reset for testing
     [self performSelector:@selector(resetLoginButton) withObject:nil afterDelay:3];
@@ -190,7 +197,7 @@ NSInteger const VIPasswordMinCharacters = 6;
 {
     self.loginButton.enabled = YES;
     self.loginButton.backgroundColor = [self.loginButton.backgroundColor colorWithAlphaComponent:1];
-    [self.loginButton setTitle:NSLocalizedString(@"GO!", @"login text") forState:UIControlStateNormal];
+    [self.loginButton setTitle:NSLocalizedString(VI_LOGIN_GO_TEXT, @"login text") forState:UIControlStateNormal];
 }
 
 - (void)loginFailedWithErrorDescription:(NSString *)localizedDescription
