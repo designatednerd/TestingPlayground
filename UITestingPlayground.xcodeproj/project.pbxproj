@@ -741,6 +741,7 @@
 				33FC5B41189FF7310027ED82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

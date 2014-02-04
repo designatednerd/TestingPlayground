@@ -11,11 +11,11 @@
 #import "VIViewController.h"
 #import "VIFakeAPI.h"
 
-@interface UITestingPlayground_Tests : KIFTestCase
+@interface UITestingPlaygroundTests_UI : KIFTestCase
 
 @end
 
-@implementation UITestingPlayground_Tests
+@implementation UITestingPlaygroundTests_UI
 
 - (void)beforeEach
 {
