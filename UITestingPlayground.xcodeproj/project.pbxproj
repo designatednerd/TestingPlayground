@@ -27,6 +27,7 @@
 		33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */; };
 		33BCBF9F189C47E600479904 /* VIFakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF9E189C47E600479904 /* VIFakeAPI.m */; };
 		33BCBFA3189C50A900479904 /* XCTAsyncTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */; };
+		33C6C9D318BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6C9D218BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m */; };
 		33FC5B31189FF7310027ED82 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF87189C451C00479904 /* XCTest.framework */; };
 		33FC5B32189FF7310027ED82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF65189C451C00479904 /* Foundation.framework */; };
 		33FC5B33189FF7310027ED82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF69189C451C00479904 /* UIKit.framework */; };
@@ -106,6 +107,7 @@
 		33BCBF9E189C47E600479904 /* VIFakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIFakeAPI.m; path = FakeNetworking/VIFakeAPI.m; sourceTree = "<group>"; };
 		33BCBFA1189C50A900479904 /* XCTAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTAsyncTestCase.h; path = "UITestingPlayground/Lib/xctest-additions/XCTAsyncTestCase.h"; sourceTree = SOURCE_ROOT; };
 		33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCTAsyncTestCase.m; path = "UITestingPlayground/Lib/xctest-additions/XCTAsyncTestCase.m"; sourceTree = SOURCE_ROOT; };
+		33C6C9D218BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestingPlayground_LocalizationXCTest.m; sourceTree = "<group>"; };
 		33FC5B1F189FF6A70027ED82 /* KIF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KIF.xcodeproj; path = UITestingPlayground/Lib/KIF/KIF.xcodeproj; sourceTree = "<group>"; };
 		33FC5B30189FF7310027ED82 /* UITestingPlayground_UITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITestingPlayground_UITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FC5B36189FF7310027ED82 /* UITestingPlayground Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITestingPlayground Tests-Info.plist"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 			children = (
 				33FC5B3A189FF7310027ED82 /* UITestingPlaygroundTests_UI.m */,
 				3342F9FD18A1A0DB000578A9 /* UITestingPlaygroundTests_Localization.m */,
+				33C6C9D218BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m */,
 				33FC5B35189FF7310027ED82 /* Supporting Files */,
 			);
 			path = "UITestingPlayground Tests";
@@ -457,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BCBFA3189C50A900479904 /* XCTAsyncTestCase.m in Sources */,
+				33C6C9D318BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m in Sources */,
 				33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

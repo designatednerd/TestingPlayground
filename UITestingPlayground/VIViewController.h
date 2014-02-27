@@ -15,6 +15,7 @@ FOUNDATION_EXPORT NSString * const VIAccessibilityUsernameErrorView;
 FOUNDATION_EXPORT NSString * const VIAccessibilityPasswordErrorView;
 FOUNDATION_EXPORT NSString * const VIAccessibilityLoginButton;
 FOUNDATION_EXPORT NSString * const VIAccessibilityErrorTextLabel;
+FOUNDATION_EXPORT NSString * const VIAccessibilityLoginTitleLabel;
 
 
 @interface VIViewController : UIViewController

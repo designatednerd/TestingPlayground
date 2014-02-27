@@ -11,6 +11,7 @@
 #import "VIFakeAPI.h"
 #import "VILocalizedStringKeys.h"
 
+NSString * const VIAccessibilityLoginTitleLabel = @"Login Title";
 NSString * const VIAccessibilityUsernameTextField = @"Username Text Field";
 NSString * const VIAccessibilityPasswordTextField = @"Password Text Field";
 NSString * const VIAccessibilityUsernameErrorView = @"Username Error View";
@@ -27,7 +28,7 @@ NSInteger const VIPasswordMinCharacters = 6;
 @property (nonatomic, weak) IBOutlet UIView *passwordErrorView;
 @property (nonatomic, weak) IBOutlet UIButton *loginButton;
 @property (nonatomic, weak) IBOutlet UILabel *errorTextLabel;
-
+@property (nonatomic, weak) IBOutlet UILabel *loginTitleLabel;
 @property (nonatomic, strong) VIFakeAPI *fakeAPI;
 @end
 
@@ -56,11 +57,15 @@ NSInteger const VIPasswordMinCharacters = 6;
     self.passwordErrorView.accessibilityLabel = VIAccessibilityPasswordErrorView;
     self.loginButton.accessibilityLabel = VIAccessibilityLoginButton;
     self.errorTextLabel.accessibilityLabel = VIAccessibilityErrorTextLabel;
+    self.loginTitleLabel.accessibilityLabel = VIAccessibilityLoginTitleLabel;
 }
 
 - (void)localizeStrings
 {
     [self.loginButton setTitle:NSLocalizedString(VI_LOGIN_GO_TEXT, @"login text") forState:UIControlStateNormal];
+    self.loginTitleLabel.text = NSLocalizedString(VI_LOGIN_TITLE, @"Login Title");
+    self.usernameTextField.placeholder = NSLocalizedString(VI_LOGIN_USERNAME_PLACEHOLDER, @"Username Placeholder");
+    self.passwordTextField.placeholder = NSLocalizedString(VI_LOGIN_PASSWORD_PLACEHOLDER, @"Password Placeholder");
 }
 
 #pragma mark - IBActions
