@@ -44,9 +44,9 @@ static NSString * const DEVELOPER_LANGUAGE = @"en";
 
 
 /**
- * This test assumes you have added -AppleLanguages and ([two-letter language code]) 
- * to your build scheme's Test Arguments Passed On Launch to force the sim to launch in a
- * specific language.
+ * This test assumes you have added -AppleLanguages and ([two-letter language code]) as 
+ * the first two arguments in your build scheme's Test Arguments Passed On Launch to force
+ * the sim to launch in a specific language.
  * Further details about this technique: https://coderwall.com/p/te63dg
  */
 - (void)testSimIsRunningExpectedLanguage
