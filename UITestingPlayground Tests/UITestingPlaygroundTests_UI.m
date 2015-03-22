@@ -79,21 +79,21 @@
     
     //Test that the error text label shows up with the correct errors
     UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
-    STAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
+    XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
-    STAssertTrue([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Too short password error not displaying with empty password!");
-    STAssertTrue([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Username must be an email error not displaying with empty email!");
-    STAssertTrue([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Username must not be empty error not displaying with empty email!");
-    STAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad username from API error!");
-    STAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
+    XCTAssertTrue([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Too short password error not displaying with empty password!");
+    XCTAssertTrue([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Username must be an email error not displaying with empty email!");
+    XCTAssertTrue([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Username must not be empty error not displaying with empty email!");
+    XCTAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad username from API error!");
+    XCTAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
     
     //Test that both error views show up.
     [tester waitForViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
     [tester waitForViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
     
     //Test that the login button re-enables after local failure.
-    STAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
 }
 
 - (void)testTooShortPassword
@@ -102,21 +102,21 @@
     
     //Test that the error label shows up with the correct error message.
     UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
-    STAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
+    XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
-    STAssertTrue([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Too short error not displaying with too-short password!");
-    STAssertFalse([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Username must be email is displaying with valid email!");
-    STAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Username must not be empty is displaying with valid email!");
-    STAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad username from API error!");
-    STAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
+    XCTAssertTrue([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Too short error not displaying with too-short password!");
+    XCTAssertFalse([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Username must be email is displaying with valid email!");
+    XCTAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Username must not be empty is displaying with valid email!");
+    XCTAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad username from API error!");
+    XCTAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
     
     //Test that only the password error view shows up
     [tester waitForViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
     
     //Test that the login button re-enables after local failure.
-    STAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
 }
 
 - (void)testInvalidUsername
@@ -125,70 +125,70 @@
     
     //Test that the error label shows up with the correct error message
     UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
-    STAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
+    XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
-    STAssertTrue([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Invalid username not displaying error!");
-    STAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Non-empty username displaying user must not be empty error!");
-    STAssertFalse([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Too short error displaying with password of sufficient length!");
-    STAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad username from API error!");
-    STAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
+    XCTAssertTrue([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Invalid username not displaying error!");
+    XCTAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Non-empty username displaying user must not be empty error!");
+    XCTAssertFalse([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Too short error displaying with password of sufficient length!");
+    XCTAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad username from API error!");
+    XCTAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
     
     //Test that only the username error view shows up
     [tester waitForViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
     
     //Test that the login button re-enables after local failure.
-    STAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
 }
 
 - (void)testWrongUsernameAndPassword
 {
     [self loginWithUsername:@"lol@no.com" andPassword:@"noooooope"];
-    STAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login enabled while logging in with API!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login enabled while logging in with API!");
     
     //Test that the error label shows up with the correct message
     UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
-    STAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
+    XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
-    STAssertFalse([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Test that should go to API displaying local email error!");
-    STAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Test that should go to API displaying user must not be empty error!");
-    STAssertFalse([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Test that should go to API displaying with password of sufficient length!");
-    STAssertTrue([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Invalid username not displaying an error from API!");
-    STAssertTrue([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Invalid password not displaying an error from API!");
+    XCTAssertFalse([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Test that should go to API displaying local email error!");
+    XCTAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Test that should go to API displaying user must not be empty error!");
+    XCTAssertFalse([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Test that should go to API displaying with password of sufficient length!");
+    XCTAssertTrue([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Invalid username not displaying an error from API!");
+    XCTAssertTrue([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Invalid password not displaying an error from API!");
     
     //Test that both username and password error views are showing
     [tester waitForViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
     [tester waitForViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
     
     //Test that the login button re-enables after API failure.
-    STAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after API failure!");}
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after API failure!");}
 
 - (void)testWrongUsername
 {
     [self loginWithUsername:@"fake@fake.com" andPassword:VIValidLoginPassword];
     
     //Test that the login button disables while logging in
-    STAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
     
     //Test that the error label shows up with the correct message
     UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
-    STAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
+    XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
 
     UILabel *errorTextLabel = (UILabel *)view;
-    STAssertFalse([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Test that should go to API displaying local email error!");
-    STAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Test that should go to API displaying user must not be empty error!");
-    STAssertFalse([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Test that should go to API displaying with password of sufficient length!");
-    STAssertTrue([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Invalid username not displaying an error from API!");
-    STAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Valid password displaying an error from API!");
+    XCTAssertFalse([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Test that should go to API displaying local email error!");
+    XCTAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Test that should go to API displaying user must not be empty error!");
+    XCTAssertFalse([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Test that should go to API displaying with password of sufficient length!");
+    XCTAssertTrue([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Invalid username not displaying an error from API!");
+    XCTAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Valid password displaying an error from API!");
     
     //Test that only the username error view shows up
     [tester waitForViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
     
     //Test that the login button re-enables after API failure.
-    STAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
 }
 
 - (void)testWrongPassword
@@ -196,25 +196,25 @@
     [self loginWithUsername:VIValidLoginUserName andPassword:@"password"];
     
     //Test that the login button disables while logging in
-    STAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
     
     //Test that the error label shows up with the correct message
     UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
-    STAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
+    XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
-    STAssertFalse([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Test that should go to API displaying local email error!");
-    STAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Test that should go to API displaying user must not be empty error!");
-    STAssertFalse([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Test that should go to API displaying with password of sufficient length!");
-    STAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Valid username displaying an error from API!");
-    STAssertTrue([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Invalid password not displaying an error from API!");
+    XCTAssertFalse([self errorTextLabelHasMustBeEmailError:errorTextLabel], @"Test that should go to API displaying local email error!");
+    XCTAssertFalse([self errorTextLabelHasEmailEmptyError:errorTextLabel], @"Test that should go to API displaying user must not be empty error!");
+    XCTAssertFalse([self errorTextLabelHasPasswordTooShortError:errorTextLabel], @"Test that should go to API displaying with password of sufficient length!");
+    XCTAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Valid username displaying an error from API!");
+    XCTAssertTrue([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Invalid password not displaying an error from API!");
     
     //Test that only the password error view shows up
     [tester waitForViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
     [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
     
     //Test that the login button re-enables after API failure.
-    STAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
 }
 
 - (void)testValidCredentials
@@ -222,7 +222,7 @@
     [self loginWithUsername:VIValidLoginUserName andPassword:VIValidLoginPassword];
 
     //Test that the login button disables while logging in
-    STAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
     
     //Test that all error views are hidden
     [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
@@ -230,7 +230,7 @@
     [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
     
     //Test that the login button does not re-enable after API success.
-    STAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
 }
 
 @end

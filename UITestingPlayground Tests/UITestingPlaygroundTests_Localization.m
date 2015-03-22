@@ -39,7 +39,7 @@
 {
     //Ganked from http://learning-ios.blogspot.com/2011/04/advance-localization-in-ios-apps.html
     NSString *currentLocaleStringForKey = [self.localeBundle localizedStringForKey:key value:@"" table:nil];
-    STAssertNotNil(currentLocaleStringForKey, @"Localized string not found in Localizable.strings for key %@", key);
+    XCTAssertNotNil(currentLocaleStringForKey, @"Localized string not found in Localizable.strings for key %@", key);
     
     return currentLocaleStringForKey;    
 }
@@ -47,17 +47,17 @@
 - (void)testLoginButtonLocalized
 {
     UIView *buttonView = [tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton];
-    STAssertTrue([buttonView isKindOfClass:[UIButton class]], @"Retrieved class is not a button!");
+    XCTAssertTrue([buttonView isKindOfClass:[UIButton class]], @"Retrieved class is not a button!");
     
     UIButton *button = (UIButton *)buttonView;
     NSString *localizedLoginGo = [self currentLocaleStringForKey:VI_LOGIN_GO_TEXT];
-    STAssertTrue([button.titleLabel.text isEqualToString:localizedLoginGo], @"Login button text not localized for %@!", self.locale);
+    XCTAssertTrue([button.titleLabel.text isEqualToString:localizedLoginGo], @"Login button text not localized for %@!", self.locale);
 }
 
 - (UITextField *)textFieldForAccessibilityLabel:(NSString *)accessibilityLabel
 {
     UIView *textFieldView = [tester waitForViewWithAccessibilityLabel:accessibilityLabel];
-    STAssertTrue([textFieldView isKindOfClass:[UITextField class]], @"Retrieved class is not a text field!");
+    XCTAssertTrue([textFieldView isKindOfClass:[UITextField class]], @"Retrieved class is not a text field!");
     
    return (UITextField *)textFieldView;
 }
@@ -66,24 +66,24 @@
 {
     UITextField *textField = [self textFieldForAccessibilityLabel:VIAccessibilityPasswordTextField];
     NSString *localizedPasswordPlaceholder = [self currentLocaleStringForKey:VI_LOGIN_PASSWORD_PLACEHOLDER];
-    STAssertTrue([textField.placeholder isEqualToString:localizedPasswordPlaceholder], @"Login password placeholder not localized for %@!", self.locale);
+    XCTAssertTrue([textField.placeholder isEqualToString:localizedPasswordPlaceholder], @"Login password placeholder not localized for %@!", self.locale);
 }
 
 - (void)testUsernamePlaceholderLocalized
 {
     UITextField *textField = [self textFieldForAccessibilityLabel:VIAccessibilityUsernameTextField];
     NSString *localizedUsernamePlaceholder = [self currentLocaleStringForKey:VI_LOGIN_USERNAME_PLACEHOLDER];
-    STAssertTrue([textField.placeholder isEqualToString:localizedUsernamePlaceholder], @"Login username placeholder not localized for %@!", self.locale);
+    XCTAssertTrue([textField.placeholder isEqualToString:localizedUsernamePlaceholder], @"Login username placeholder not localized for %@!", self.locale);
 }
 
 - (void)testLoginTitleLocalized
 {
     UIView *labelView = [tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginTitleLabel];
-    STAssertTrue([labelView isKindOfClass:[UILabel class]], @"Requested field is not a label!");
+    XCTAssertTrue([labelView isKindOfClass:[UILabel class]], @"Requested field is not a label!");
     
     UILabel *label = (UILabel *)labelView;
     NSString *localizedLoginTitle = [self currentLocaleStringForKey:VI_LOGIN_TITLE];
-    STAssertTrue([label.text isEqualToString:localizedLoginTitle], @"Login title not localized for %@!", self.locale);
+    XCTAssertTrue([label.text isEqualToString:localizedLoginTitle], @"Login title not localized for %@!", self.locale);
 }
 
 @end

@@ -16,18 +16,6 @@ static NSString * const DEVELOPER_LANGUAGE = @"en";
 
 @implementation UITestingPlayground_LocalizationXCTest
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here; it will be run once, before the first test case.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here; it will be run once, after the last test case.
-    [super tearDown];
-}
-
 - (NSBundle *)bundleForLanguage:(NSString *)language
 {
     NSString *languageBundePath = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
@@ -42,6 +30,21 @@ static NSString * const DEVELOPER_LANGUAGE = @"en";
     return localeBundle;
 }
 
+- (NSString *)checkCurrentLocaleStringForKey:(NSString *)key
+{
+    //Ganked from http://learning-ios.blogspot.com/2011/04/advance-localization-in-ios-apps.html
+    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSBundle *languageBundle = [self bundleForLanguage:language];
+    XCTAssertNotNil(languageBundle, @"Language bundle for %@ was nil!", language);
+    
+    NSString *currentLocaleStringForKey = [languageBundle localizedStringForKey:key value:@"" table:nil];
+    
+    if (![language isEqualToString:DEVELOPER_LANGUAGE]) {
+        XCTAssertFalse([currentLocaleStringForKey isEqualToString:key], @"Key %@ returning itself rather than a localized string - check the translation !", key);
+    }
+    
+    return currentLocaleStringForKey;
+}
 
 /**
  * This test assumes you have added -AppleLanguages and ([two-letter language code]) as 
@@ -70,23 +73,6 @@ static NSString * const DEVELOPER_LANGUAGE = @"en";
     XCTAssertTrue([language isEqualToString:argumentNoParens], @"Sim language %@ not expected language %@!", language, argumentNoParens);
 }
 
-//Added underscore to prevent test from being called directly by the testing framework.
-- (NSString *)_testCurrentLocaleStringForKey:(NSString *)key
-{
-    //Ganked from http://learning-ios.blogspot.com/2011/04/advance-localization-in-ios-apps.html
-    NSString *language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    NSBundle *languageBundle = [self bundleForLanguage:language];
-    XCTAssertNotNil(languageBundle, @"Language bundle for %@ was nil!", language);
-    
-    NSString *currentLocaleStringForKey = [languageBundle localizedStringForKey:key value:@"" table:nil];
-    
-    if (![language isEqualToString:DEVELOPER_LANGUAGE]) {
-        XCTAssertFalse([currentLocaleStringForKey isEqualToString:key], @"Key %@ returning itself rather than a localized string - check the translation !", key);
-    }
-
-    return currentLocaleStringForKey;
-}
-
 - (void)testAllKeysAreLocalized
 {
     NSString *devLanguagePath = [[NSBundle mainBundle] pathForResource:@"Localizable"ofType:@"strings" inDirectory:nil forLocalization:DEVELOPER_LANGUAGE];
@@ -96,7 +82,7 @@ static NSString * const DEVELOPER_LANGUAGE = @"en";
     
     //Go through all the keys and make sure that you have a localization
     [devLanguageDict enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
-        [self _testCurrentLocaleStringForKey:key];
+        [self checkCurrentLocaleStringForKey:key];
     }];
 }
 

@@ -34,6 +34,7 @@
 		33FC5B3B189FF7310027ED82 /* UITestingPlaygroundTests_UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FC5B3A189FF7310027ED82 /* UITestingPlaygroundTests_UI.m */; };
 		33FC5B43189FF7BE0027ED82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF67189C451C00479904 /* CoreGraphics.framework */; };
 		33FC5B45189FF9460027ED82 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33FC5B44189FF9460027ED82 /* SenTestingKit.framework */; };
+		72110718EC73A5761B76FD83 /* libPods-UITestingPlayground_UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7BE6088E6B9701D6413418 /* libPods-UITestingPlayground_UITests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D09F1305E7BA5078EB053CB /* Pods-UITestingPlayground_UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITestingPlayground_UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITestingPlayground_UITests/Pods-UITestingPlayground_UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3342F9FC18A19FFE000578A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3342F9FD18A1A0DB000578A9 /* UITestingPlaygroundTests_Localization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestingPlaygroundTests_Localization.m; sourceTree = "<group>"; };
 		3342FA0018A1A8D7000578A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -83,12 +85,14 @@
 		33BCBF9D189C47E600479904 /* VIFakeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIFakeAPI.h; path = FakeNetworking/VIFakeAPI.h; sourceTree = "<group>"; };
 		33BCBF9E189C47E600479904 /* VIFakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIFakeAPI.m; path = FakeNetworking/VIFakeAPI.m; sourceTree = "<group>"; };
 		33C6C9D218BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestingPlayground_LocalizationXCTest.m; sourceTree = "<group>"; };
-		33FC5B30189FF7310027ED82 /* UITestingPlayground_UITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITestingPlayground_UITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		33FC5B30189FF7310027ED82 /* UITestingPlayground_UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITestingPlayground_UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FC5B36189FF7310027ED82 /* UITestingPlayground Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITestingPlayground Tests-Info.plist"; sourceTree = "<group>"; };
 		33FC5B38189FF7310027ED82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		33FC5B3A189FF7310027ED82 /* UITestingPlaygroundTests_UI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITestingPlaygroundTests_UI.m; sourceTree = "<group>"; };
 		33FC5B3C189FF7310027ED82 /* UITestingPlayground Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITestingPlayground Tests-Prefix.pch"; sourceTree = "<group>"; };
 		33FC5B44189FF9460027ED82 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		6B7BE6088E6B9701D6413418 /* libPods-UITestingPlayground_UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITestingPlayground_UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEE3CC92E0B72571B6E4213B /* Pods-UITestingPlayground_UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITestingPlayground_UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITestingPlayground_UITests/Pods-UITestingPlayground_UITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,7 @@
 				33FC5B31189FF7310027ED82 /* XCTest.framework in Frameworks */,
 				33FC5B33189FF7310027ED82 /* UIKit.framework in Frameworks */,
 				33FC5B32189FF7310027ED82 /* Foundation.framework in Frameworks */,
+				72110718EC73A5761B76FD83 /* libPods-UITestingPlayground_UITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +140,7 @@
 				33FC5B34189FF7310027ED82 /* UITestingPlayground Tests */,
 				33BCBF64189C451C00479904 /* Frameworks */,
 				33BCBF63189C451C00479904 /* Products */,
+				BC33153A9545617E506000E6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,7 +149,7 @@
 			children = (
 				33BCBF62189C451C00479904 /* UITestingPlayground.app */,
 				33BCBF86189C451C00479904 /* UITestingPlaygroundTests.xctest */,
-				33FC5B30189FF7310027ED82 /* UITestingPlayground_UITests.octest */,
+				33FC5B30189FF7310027ED82 /* UITestingPlayground_UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +162,7 @@
 				33BCBF67189C451C00479904 /* CoreGraphics.framework */,
 				33BCBF69189C451C00479904 /* UIKit.framework */,
 				33BCBF87189C451C00479904 /* XCTest.framework */,
+				6B7BE6088E6B9701D6413418 /* libPods-UITestingPlayground_UITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,6 +237,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BC33153A9545617E506000E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D09F1305E7BA5078EB053CB /* Pods-UITestingPlayground_UITests.debug.xcconfig */,
+				DEE3CC92E0B72571B6E4213B /* Pods-UITestingPlayground_UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,9 +288,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 33FC5B3F189FF7310027ED82 /* Build configuration list for PBXNativeTarget "UITestingPlayground_UITests" */;
 			buildPhases = (
+				237E1EFE1F8C92B4F1942533 /* Check Pods Manifest.lock */,
 				33FC5B2C189FF7310027ED82 /* Sources */,
 				33FC5B2D189FF7310027ED82 /* Frameworks */,
 				33FC5B2E189FF7310027ED82 /* Resources */,
+				37D08A2AB79D0B783258E0A6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,7 +301,7 @@
 			);
 			name = UITestingPlayground_UITests;
 			productName = "UITestingPlayground Tests";
-			productReference = 33FC5B30189FF7310027ED82 /* UITestingPlayground_UITests.octest */;
+			productReference = 33FC5B30189FF7310027ED82 /* UITestingPlayground_UITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -355,6 +373,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		237E1EFE1F8C92B4F1942533 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		37D08A2AB79D0B783258E0A6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITestingPlayground_UITests/Pods-UITestingPlayground_UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		33BCBF5E189C451C00479904 /* Sources */ = {
@@ -600,6 +651,7 @@
 		};
 		33FC5B40189FF7310027ED82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D09F1305E7BA5078EB053CB /* Pods-UITestingPlayground_UITests.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UITestingPlayground.app/UITestingPlayground";
@@ -621,12 +673,13 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
 		33FC5B41189FF7310027ED82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DEE3CC92E0B72571B6E4213B /* Pods-UITestingPlayground_UITests.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UITestingPlayground.app/UITestingPlayground";
@@ -644,7 +697,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
