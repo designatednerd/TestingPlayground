@@ -26,14 +26,12 @@
 		33BCBF92189C451C00479904 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33BCBF90189C451C00479904 /* InfoPlist.strings */; };
 		33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */; };
 		33BCBF9F189C47E600479904 /* VIFakeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF9E189C47E600479904 /* VIFakeAPI.m */; };
-		33BCBFA3189C50A900479904 /* XCTAsyncTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */; };
 		33C6C9D318BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C6C9D218BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m */; };
 		33FC5B31189FF7310027ED82 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF87189C451C00479904 /* XCTest.framework */; };
 		33FC5B32189FF7310027ED82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF65189C451C00479904 /* Foundation.framework */; };
 		33FC5B33189FF7310027ED82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF69189C451C00479904 /* UIKit.framework */; };
 		33FC5B39189FF7310027ED82 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 33FC5B37189FF7310027ED82 /* InfoPlist.strings */; };
 		33FC5B3B189FF7310027ED82 /* UITestingPlaygroundTests_UI.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FC5B3A189FF7310027ED82 /* UITestingPlaygroundTests_UI.m */; };
-		33FC5B42189FF7B40027ED82 /* libKIF.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33FC5B27189FF6A70027ED82 /* libKIF.a */; };
 		33FC5B43189FF7BE0027ED82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF67189C451C00479904 /* CoreGraphics.framework */; };
 		33FC5B45189FF9460027ED82 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33FC5B44189FF9460027ED82 /* SenTestingKit.framework */; };
 /* End PBXBuildFile section */
@@ -45,27 +43,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 33BCBF61189C451C00479904;
 			remoteInfo = UITestingPlayground;
-		};
-		33FC5B26189FF6A70027ED82 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 33FC5B1F189FF6A70027ED82 /* KIF.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EB72047C1680DDAD00278DA2;
-			remoteInfo = KIF;
-		};
-		33FC5B28189FF6A70027ED82 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 33FC5B1F189FF6A70027ED82 /* KIF.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EB60ECC1177F8C83005A041A;
-			remoteInfo = "Test Host";
-		};
-		33FC5B2A189FF6A70027ED82 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 33FC5B1F189FF6A70027ED82 /* KIF.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EB60ECEB177F8DB3005A041A;
-			remoteInfo = "KIF Tests";
 		};
 		33FC5B3D189FF7310027ED82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -105,10 +82,7 @@
 		33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITestingPlaygroundTests_NonUI.m; sourceTree = "<group>"; };
 		33BCBF9D189C47E600479904 /* VIFakeAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VIFakeAPI.h; path = FakeNetworking/VIFakeAPI.h; sourceTree = "<group>"; };
 		33BCBF9E189C47E600479904 /* VIFakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIFakeAPI.m; path = FakeNetworking/VIFakeAPI.m; sourceTree = "<group>"; };
-		33BCBFA1189C50A900479904 /* XCTAsyncTestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCTAsyncTestCase.h; path = "UITestingPlayground/Lib/xctest-additions/XCTAsyncTestCase.h"; sourceTree = SOURCE_ROOT; };
-		33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XCTAsyncTestCase.m; path = "UITestingPlayground/Lib/xctest-additions/XCTAsyncTestCase.m"; sourceTree = SOURCE_ROOT; };
 		33C6C9D218BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestingPlayground_LocalizationXCTest.m; sourceTree = "<group>"; };
-		33FC5B1F189FF6A70027ED82 /* KIF.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KIF.xcodeproj; path = UITestingPlayground/Lib/KIF/KIF.xcodeproj; sourceTree = "<group>"; };
 		33FC5B30189FF7310027ED82 /* UITestingPlayground_UITests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITestingPlayground_UITests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FC5B36189FF7310027ED82 /* UITestingPlayground Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UITestingPlayground Tests-Info.plist"; sourceTree = "<group>"; };
 		33FC5B38189FF7310027ED82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -144,7 +118,6 @@
 			files = (
 				33FC5B45189FF9460027ED82 /* SenTestingKit.framework in Frameworks */,
 				33FC5B43189FF7BE0027ED82 /* CoreGraphics.framework in Frameworks */,
-				33FC5B42189FF7B40027ED82 /* libKIF.a in Frameworks */,
 				33FC5B31189FF7310027ED82 /* XCTest.framework in Frameworks */,
 				33FC5B33189FF7310027ED82 /* UIKit.framework in Frameworks */,
 				33FC5B32189FF7310027ED82 /* Foundation.framework in Frameworks */,
@@ -162,7 +135,6 @@
 				33FC5B34189FF7310027ED82 /* UITestingPlayground Tests */,
 				33BCBF64189C451C00479904 /* Frameworks */,
 				33BCBF63189C451C00479904 /* Products */,
-				33FC5B1F189FF6A70027ED82 /* KIF.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -222,8 +194,6 @@
 		33BCBF8D189C451C00479904 /* UITestingPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
-				33FC5B11189FF5BD0027ED82 /* KIF */,
-				33BCBFA0189C504300479904 /* xctest-addtions */,
 				33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */,
 				33BCBF8E189C451C00479904 /* Supporting Files */,
 			);
@@ -237,32 +207,6 @@
 				33BCBF90189C451C00479904 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		33BCBFA0189C504300479904 /* xctest-addtions */ = {
-			isa = PBXGroup;
-			children = (
-				33BCBFA1189C50A900479904 /* XCTAsyncTestCase.h */,
-				33BCBFA2189C50A900479904 /* XCTAsyncTestCase.m */,
-			);
-			name = "xctest-addtions";
-			sourceTree = "<group>";
-		};
-		33FC5B11189FF5BD0027ED82 /* KIF */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = KIF;
-			sourceTree = "<group>";
-		};
-		33FC5B20189FF6A70027ED82 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				33FC5B27189FF6A70027ED82 /* libKIF.a */,
-				33FC5B29189FF6A70027ED82 /* Test Host.app */,
-				33FC5B2B189FF6A70027ED82 /* KIF Tests.octest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		33FC5B34189FF7310027ED82 /* UITestingPlayground Tests */ = {
@@ -372,12 +316,6 @@
 			mainGroup = 33BCBF59189C451C00479904;
 			productRefGroup = 33BCBF63189C451C00479904 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 33FC5B20189FF6A70027ED82 /* Products */;
-					ProjectRef = 33FC5B1F189FF6A70027ED82 /* KIF.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				33BCBF61189C451C00479904 /* UITestingPlayground */,
@@ -386,30 +324,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		33FC5B27189FF6A70027ED82 /* libKIF.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libKIF.a;
-			remoteRef = 33FC5B26189FF6A70027ED82 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		33FC5B29189FF6A70027ED82 /* Test Host.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Test Host.app";
-			remoteRef = 33FC5B28189FF6A70027ED82 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		33FC5B2B189FF6A70027ED82 /* KIF Tests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "KIF Tests.octest";
-			remoteRef = 33FC5B2A189FF6A70027ED82 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		33BCBF60189C451C00479904 /* Resources */ = {
@@ -459,7 +373,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33BCBFA3189C50A900479904 /* XCTAsyncTestCase.m in Sources */,
 				33C6C9D318BFA064007D63C2 /* UITestingPlayground_LocalizationXCTest.m in Sources */,
 				33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */,
 			);
