@@ -8,11 +8,13 @@
 
 #import "VIFakeAPI.h"
 
+#import "VILocalizedStrings.h"
+
 NSString * const VIValidLoginUserName = @"valid@username.com";
 NSString * const VIValidLoginPassword = @"p@ssw0rd";
 NSString * const VIFakeAPIErrorDoman = @"VIFakeAPIErrorDomain";
 
-NSTimeInterval const VIResponseDelay = 2.0f;
+NSTimeInterval const VIResponseDelay = 1.5f;
 
 @interface VIFakeAPI()
 @property (nonatomic, copy) VIFakeAPICompletion completion;
@@ -27,17 +29,27 @@ NSTimeInterval const VIResponseDelay = 2.0f;
     self.completion = completion;
     if ([self isUsernameValid:username] //Valid username
         && [self isPasswordValid:password]) { //and valid password
-        [self performSelector:@selector(loginSuccess) withObject:nil afterDelay:VIResponseDelay];
+        [self performSelector:@selector(loginSuccess)
+                   withObject:nil
+                   afterDelay:VIResponseDelay];
     } else if ([self isUsernameValid:username] //Valid username
                && ![self isPasswordValid:password]) { //and invalid password
-        [self performSelector:@selector(loginFailure:) withObject:[VIFakeAPI invalidPasswordError] afterDelay:VIResponseDelay];
+        [self performSelector:@selector(loginFailure:)
+                   withObject:[VILocalizedStrings errorWrongPassword]
+                   afterDelay:VIResponseDelay];
     } else if ([self isPasswordValid:password] //Valid password
                && ![self isUsernameValid:username]) { //and invalid username
-        [self performSelector:@selector(loginFailure:) withObject:[VIFakeAPI invalidUsernameError] afterDelay:VIResponseDelay];
+        [self performSelector:@selector(loginFailure:)
+                   withObject:[VILocalizedStrings errorInvalidUsername]
+                   afterDelay:VIResponseDelay];
     } else if (![self isPasswordValid:password] //Invalid password
                && ![self isUsernameValid:username]) { //and invalid username
-        NSString *bothFailures = [NSString stringWithFormat:@"%@\n%@", [VIFakeAPI invalidUsernameError], [VIFakeAPI invalidPasswordError]];
-        [self performSelector:@selector(loginFailure:) withObject:bothFailures afterDelay:VIResponseDelay];
+        NSString *bothFailures = [NSString stringWithFormat:@"%@\n%@",
+                                  [VILocalizedStrings errorInvalidUsername],
+                                  [VILocalizedStrings errorWrongPassword]];
+        [self performSelector:@selector(loginFailure:)
+                   withObject:bothFailures
+                   afterDelay:VIResponseDelay];
     } else {
         NSAssert(NO, @"Unexpected fall-through in %@: UN: %@ PW: %@", NSStringFromSelector(_cmd), username, password);
     }
@@ -46,7 +58,9 @@ NSTimeInterval const VIResponseDelay = 2.0f;
 - (void)networkFailureLoginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion
 {
     self.completion = completion;
-    [self performSelector:@selector(loginFailure:) withObject:[VIFakeAPI networkFailError] afterDelay:VIResponseDelay * 3];
+    [self performSelector:@selector(loginFailure:)
+               withObject:[VILocalizedStrings errorNetworkFail]
+               afterDelay:VIResponseDelay * 3];
 }
 
 #pragma mark - Validation
@@ -60,23 +74,6 @@ NSTimeInterval const VIResponseDelay = 2.0f;
     return [password isEqualToString:VIValidLoginPassword];
 }
 
-#pragma mark - Error strings
-+ (NSString *)invalidPasswordError
-{
-    return NSLocalizedString(@"Your password was incorrect, please try again", @"Incorrect password error message");
-}
-
-+ (NSString *)invalidUsernameError
-{
-    return NSLocalizedString(@"Your username was incorrect, please try again", @"Incorrect username error");
-}
-
-+ (NSString *)networkFailError
-{
-    return NSLocalizedString(@"Could not reach the server", @"Network failure error");
-}
-
-
 #pragma mark - Success/failure calls
 - (void)loginSuccess
 {
@@ -87,7 +84,9 @@ NSTimeInterval const VIResponseDelay = 2.0f;
 - (void)loginFailure:(NSString *)localizedDescription
 {
     NSDictionary *userInfo = @{ NSLocalizedDescriptionKey : localizedDescription };
-    self.completion(NO, [NSError errorWithDomain:VIFakeAPIErrorDoman code:0 userInfo:userInfo]);
+    self.completion(NO, [NSError errorWithDomain:VIFakeAPIErrorDoman
+                                            code:0
+                                        userInfo:userInfo]);
     self.completion = nil;
 }
 

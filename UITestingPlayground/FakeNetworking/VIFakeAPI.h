@@ -15,13 +15,12 @@ FOUNDATION_EXPORT NSString * const VIValidLoginPassword;
 
 @interface VIFakeAPI : NSObject
 
-- (void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion;
+- (void)loginWithUsername:(NSString *)username
+                 password:(NSString *)password
+               completion:(VIFakeAPICompletion)completion;
 
-- (void)networkFailureLoginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion;
-
-//Exposed for unit testing
-+ (NSString *)networkFailError;
-+ (NSString *)invalidUsernameError;
-+ (NSString *)invalidPasswordError;
+- (void)networkFailureLoginWithUsername:(NSString *)username
+                               password:(NSString *)password
+                             completion:(VIFakeAPICompletion)completion;
 
 @end

@@ -10,6 +10,8 @@
 
 #import "VIViewController.h"
 #import "VIFakeAPI.h"
+#import "VIAccessibilityStrings.h"
+#import "VILocalizedStrings.h"
 
 @interface UITestingPlaygroundTests_UI : KIFTestCase
 
@@ -22,22 +24,16 @@
     [super beforeEach];
     
     //Reset the login and password views before restarting.
-    [tester clearTextFromViewWithAccessibilityLabel:VIAccessibilityPasswordTextField];
-    [tester clearTextFromViewWithAccessibilityLabel:VIAccessibilityUsernameTextField];
-}
-
-- (void)afterEach
-{
-    [super afterEach];
+    [tester clearTextFromViewWithAccessibilityLabel:[VIAccessibilityStrings usernameTextField]];
+    [tester clearTextFromViewWithAccessibilityLabel:[VIAccessibilityStrings passwordTextField]];
 }
 
 #pragma mark - Convenience methods
 - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password
 {
-    [tester enterText:username intoViewWithAccessibilityLabel:VIAccessibilityUsernameTextField];
-    [tester enterText:password intoViewWithAccessibilityLabel:VIAccessibilityPasswordTextField];
-    [tester tapViewWithAccessibilityLabel:VIAccessibilityLoginButton];
-
+    [tester enterText:username intoViewWithAccessibilityLabel:[VIAccessibilityStrings usernameTextField]];
+    [tester enterText:password intoViewWithAccessibilityLabel:[VIAccessibilityStrings passwordTextField]];
+    [tester tapViewWithAccessibilityLabel:[VILocalizedStrings loginGoText]];
 }
 
 #pragma mark - Error String Checkers
@@ -49,27 +45,27 @@
 
 -(BOOL)errorTextLabelHasPasswordTooShortError:(UILabel *)errorTextLabel
 {
-    return [self errorTextLabel:errorTextLabel hasText:[VIViewController errorPasswordTooShort]];
+    return [self errorTextLabel:errorTextLabel hasText:[VILocalizedStrings errorPasswordTooShort:VIPasswordMinCharacters]];
 }
 
 - (BOOL)errorTextLabelHasMustBeEmailError:(UILabel *)errorTextLabel
 {
-    return [self errorTextLabel:errorTextLabel hasText:[VIViewController errorUsernameMustBeEmail]];
+    return [self errorTextLabel:errorTextLabel hasText:[VILocalizedStrings errorUsernameMustBeEmail]];
 }
 
 - (BOOL)errorTextLabelHasEmailEmptyError:(UILabel *)errorTextLabel
 {
-    return [self errorTextLabel:errorTextLabel hasText:[VIViewController errorUsernameNotEmpty]];
+    return [self errorTextLabel:errorTextLabel hasText:[VILocalizedStrings errorUsernameNotEmpty]];
 }
 
 - (BOOL)errorTestLabelHasInvalidUsernameErrorFromAPI:(UILabel *)errorTextLabel
 {
-    return [self errorTextLabel:errorTextLabel hasText:[VIFakeAPI invalidUsernameError]];
+    return [self errorTextLabel:errorTextLabel hasText:[VILocalizedStrings errorInvalidUsername]];
 }
 
 - (BOOL)errorTestLabelHasInvalidPasswordErrorFromAPI:(UILabel *)errorTextLabel
 {
-    return [self errorTextLabel:errorTextLabel hasText:[VIFakeAPI invalidPasswordError]];
+    return [self errorTextLabel:errorTextLabel hasText:[VILocalizedStrings errorWrongPassword]];
 }
 
 #pragma mark - UI tests
@@ -78,7 +74,7 @@
     [self loginWithUsername:@"" andPassword:@""];
     
     //Test that the error text label shows up with the correct errors
-    UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
+    UIView *view = [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings errorTextLabel]];
     XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
@@ -89,11 +85,11 @@
     XCTAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
     
     //Test that both error views show up.
-    [tester waitForViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
-    [tester waitForViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings usernameErrorView]];
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings passwordErrorView]];
     
     //Test that the login button re-enables after local failure.
-    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginGoText]]).enabled, @"Button disabled after local failure!");
 }
 
 - (void)testTooShortPassword
@@ -101,7 +97,7 @@
     [self loginWithUsername:VIValidLoginUserName andPassword:@"12345"];
     
     //Test that the error label shows up with the correct error message.
-    UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
+    UIView *view = [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings errorTextLabel]];
     XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
@@ -111,12 +107,12 @@
     XCTAssertFalse([self errorTestLabelHasInvalidUsernameErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad username from API error!");
     XCTAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
     
-    //Test that only the password error view shows up
-    [tester waitForViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
+    //Only the password error view shows up
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings passwordErrorView]];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:[VIAccessibilityStrings usernameErrorView]];
     
-    //Test that the login button re-enables after local failure.
-    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
+    //Login button re-enables after local failure.
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginGoText]]).enabled, @"Button disabled after local failure!");
 }
 
 - (void)testInvalidUsername
@@ -124,7 +120,7 @@
     [self loginWithUsername:@"Nope" andPassword:VIValidLoginPassword];
     
     //Test that the error label shows up with the correct error message
-    UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
+    UIView *view = [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings errorTextLabel]];
     XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
@@ -135,20 +131,20 @@
     XCTAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Test that should bomb out before hitting API showing bad password from API error!");
     
     //Test that only the username error view shows up
-    [tester waitForViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings usernameErrorView]];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:[VIAccessibilityStrings passwordErrorView]];
     
     //Test that the login button re-enables after local failure.
-    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after local failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginGoText]]).enabled, @"Button disabled after local failure!");
 }
 
 - (void)testWrongUsernameAndPassword
 {
     [self loginWithUsername:@"lol@no.com" andPassword:@"noooooope"];
-    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login enabled while logging in with API!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loggingInText]]).enabled, @"Login enabled while logging in with API!");
     
     //Test that the error label shows up with the correct message
-    UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
+    UIView *view = [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings errorTextLabel]];
     XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
@@ -159,21 +155,21 @@
     XCTAssertTrue([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Invalid password not displaying an error from API!");
     
     //Test that both username and password error views are showing
-    [tester waitForViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
-    [tester waitForViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings usernameErrorView]];
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings passwordErrorView]];
     
     //Test that the login button re-enables after API failure.
-    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Button disabled after API failure!");}
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginGoText]]).enabled, @"Button disabled after API failure!");}
 
 - (void)testWrongUsername
 {
     [self loginWithUsername:@"fake@fake.com" andPassword:VIValidLoginPassword];
     
     //Test that the login button disables while logging in
-    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loggingInText]]).enabled, @"Login button enabled while logging in with API!");
     
     //Test that the error label shows up with the correct message
-    UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
+    UIView *view = [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings errorTextLabel]];
     XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
 
     UILabel *errorTextLabel = (UILabel *)view;
@@ -184,11 +180,11 @@
     XCTAssertFalse([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Valid password displaying an error from API!");
     
     //Test that only the username error view shows up
-    [tester waitForViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings usernameErrorView]];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:[VIAccessibilityStrings passwordErrorView]];
     
     //Test that the login button re-enables after API failure.
-    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginGoText]]).enabled, @"Login button disabled after API failure!");
 }
 
 - (void)testWrongPassword
@@ -196,10 +192,10 @@
     [self loginWithUsername:VIValidLoginUserName andPassword:@"password"];
     
     //Test that the login button disables while logging in
-    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loggingInText]]).enabled, @"Login button enabled while logging in with API!");
     
     //Test that the error label shows up with the correct message
-    UIView *view = [tester waitForViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
+    UIView *view = [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings errorTextLabel]];
     XCTAssertTrue([view isKindOfClass:[UILabel class]], @"View is not a UILabel!");
     
     UILabel *errorTextLabel = (UILabel *)view;
@@ -210,11 +206,11 @@
     XCTAssertTrue([self errorTestLabelHasInvalidPasswordErrorFromAPI:errorTextLabel], @"Invalid password not displaying an error from API!");
     
     //Test that only the password error view shows up
-    [tester waitForViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings passwordErrorView]];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:[VIAccessibilityStrings usernameErrorView]];
     
     //Test that the login button re-enables after API failure.
-    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
+    XCTAssertTrue(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginGoText]]).enabled, @"Login button disabled after API failure!");
 }
 
 - (void)testValidCredentials
@@ -222,15 +218,15 @@
     [self loginWithUsername:VIValidLoginUserName andPassword:VIValidLoginPassword];
 
     //Test that the login button disables while logging in
-    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button enabled while logging in with API!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loggingInText]]).enabled, @"Login button enabled while logging in with API!");
     
     //Test that all error views are hidden
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityUsernameErrorView];
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityPasswordErrorView];
-    [tester waitForAbsenceOfViewWithAccessibilityLabel:VIAccessibilityErrorTextLabel];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:[VIAccessibilityStrings passwordErrorView]];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:[VIAccessibilityStrings usernameErrorView]];
+    [tester waitForAbsenceOfViewWithAccessibilityLabel:[VIAccessibilityStrings errorTextLabel]];
     
     //Test that the login button does not re-enable after API success.
-    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:VIAccessibilityLoginButton]).enabled, @"Login button disabled after API failure!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginSuccessText]]).enabled, @"Login button disabled after API failure!");
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "VIFakeAPI.h"
+#import "VILocalizedStrings.h"
 
 @import XCTest;
 
@@ -52,7 +53,7 @@ NSTimeInterval const VIAPITimeout = 10;
         XCTAssertFalse(success, @"Invalid login returning success!");
         XCTAssertNotNil(error, @"Invalid login not returning error!");
         NSString *localizedDescription = error.userInfo[NSLocalizedDescriptionKey];
-        XCTAssertTrue([localizedDescription isEqualToString:[VIFakeAPI invalidUsernameError]], @"Invalid password returning incorrect error!");
+        XCTAssertTrue([localizedDescription isEqualToString:[VILocalizedStrings errorInvalidUsername]], @"Invalid password returning incorrect error!");
         [expectation fulfill];
     }];
     
@@ -66,7 +67,7 @@ NSTimeInterval const VIAPITimeout = 10;
         XCTAssertFalse(success, @"Invalid login returning success!");
         XCTAssertNotNil(error, @"Invalid login not returning error!");
         NSString *localizedDescription = error.userInfo[NSLocalizedDescriptionKey];
-        XCTAssertTrue([localizedDescription isEqualToString:[VIFakeAPI invalidPasswordError]], @"Invalid password  returning incorrect error!");
+        XCTAssertTrue([localizedDescription isEqualToString:[VILocalizedStrings errorWrongPassword]], @"Invalid password  returning incorrect error!");
         [expectation fulfill];
     }];
     
@@ -81,10 +82,10 @@ NSTimeInterval const VIAPITimeout = 10;
         XCTAssertNotNil(error, @"Invalid login not returning error!");
         NSString *localizedDescription = error.userInfo[NSLocalizedDescriptionKey];
         
-        NSRange usernameErrorRange = [localizedDescription rangeOfString:[VIFakeAPI invalidUsernameError]];
+        NSRange usernameErrorRange = [localizedDescription rangeOfString:[VILocalizedStrings errorInvalidUsername]];
         XCTAssertNotEqual(usernameErrorRange.location, NSNotFound, @"Error does not contain invalid username info!");
         
-        NSRange passwordErrorRange = [localizedDescription rangeOfString:[VIFakeAPI invalidPasswordError]];
+        NSRange passwordErrorRange = [localizedDescription rangeOfString:[VILocalizedStrings errorWrongPassword]];
         XCTAssertNotEqual(passwordErrorRange.location, NSNotFound, @"Error does not contain invalid password info!");
         
         [expectation fulfill];
@@ -102,7 +103,7 @@ NSTimeInterval const VIAPITimeout = 10;
         XCTAssertNotNil(error, @"Fake network failure not returning an error!");
         
         NSString *localizedDescription = error.userInfo[NSLocalizedDescriptionKey];
-        XCTAssertTrue([localizedDescription isEqualToString:[VIFakeAPI networkFailError]], @"Error does not contain network fail info!");
+        XCTAssertTrue([localizedDescription isEqualToString:[VILocalizedStrings errorNetworkFail]], @"Error does not contain network fail info!");
         
         [expectation fulfill];
     }];
