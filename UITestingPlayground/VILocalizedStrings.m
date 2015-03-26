@@ -80,4 +80,9 @@
     return NSLocalizedString(@"Could not reach the server", @"Network failure error");
 }
 
++ (NSString *)errorNoInternet
+{
+    return NSLocalizedString(@"You are not connected to the internet. Please reconnect and try again.", @"No Internet error")
+}
+
 @end

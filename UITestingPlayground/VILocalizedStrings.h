@@ -33,5 +33,6 @@
 + (NSString *)errorWrongPassword;
 + (NSString *)errorNetworkFail;
 + (NSString *)errorInvalidUsername;
++ (NSString *)errorNoInternet;
 
 @end

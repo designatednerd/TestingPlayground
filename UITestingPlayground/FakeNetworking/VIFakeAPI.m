@@ -22,11 +22,27 @@ NSTimeInterval const VIResponseDelay = 1.5f;
 
 @implementation VIFakeAPI
 
+- (instancetype)init
+{
+    if (self = [super init]) {
+        _reachability = [Reachability reachabilityForInternetConnection];
+    }
+    
+    return self;
+}
+
 #pragma mark - Public methods
 
 - (void)loginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion
 {
     self.completion = completion;
+
+    if (![self.reachability isReachable]) {
+        //We cannot has internets! Bail out!
+        [self loginFailure:[VILocalizedStrings errorNoInternet]];
+        return;
+    }
+    
     if ([self isUsernameValid:username] //Valid username
         && [self isPasswordValid:password]) { //and valid password
         [self performSelector:@selector(loginSuccess)

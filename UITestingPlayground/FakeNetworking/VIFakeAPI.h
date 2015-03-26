@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Reachability.h"
 
 typedef void (^VIFakeAPICompletion)(BOOL success, NSError *error);
 
@@ -14,6 +15,8 @@ FOUNDATION_EXPORT NSString * const VIValidLoginUserName;
 FOUNDATION_EXPORT NSString * const VIValidLoginPassword;
 
 @interface VIFakeAPI : NSObject
+
+@property (nonatomic) Reachability *reachability;
 
 - (void)loginWithUsername:(NSString *)username
                  password:(NSString *)password
