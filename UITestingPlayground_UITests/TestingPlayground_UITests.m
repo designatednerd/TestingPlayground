@@ -13,11 +13,11 @@
 #import "VIAccessibilityStrings.h"
 #import "VILocalizedStrings.h"
 
-@interface UITestingPlaygroundTests_UI : KIFTestCase
+@interface TestingPlayground_UITests : KIFTestCase
 
 @end
 
-@implementation UITestingPlaygroundTests_UI
+@implementation TestingPlayground_UITests
 
 - (void)beforeEach
 {

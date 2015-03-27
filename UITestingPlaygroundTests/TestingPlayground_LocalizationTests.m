@@ -10,11 +10,11 @@
 
 static NSString * const DEVELOPER_LANGUAGE = @"en";
 
-@interface UITestingPlayground_LocalizationXCTest : XCTestCase
+@interface TestingPlayground_LocalizationTests : XCTestCase
 
 @end
 
-@implementation UITestingPlayground_LocalizationXCTest
+@implementation TestingPlayground_LocalizationTests
 
 - (void)setUp
 {

@@ -17,11 +17,11 @@
 #define MOCKITO_SHORTHAND
 #import <OCMockito/OCMockito.h>
 
-@interface UITestingPlayground_MockTests : XCTestCase
+@interface TestingPlayground_MockTests : XCTestCase
 @property (nonatomic) VIFakeAPI *fakeAPI;
 @end
 
-@implementation UITestingPlayground_MockTests
+@implementation TestingPlayground_MockTests
 
 - (void)setUp
 {
