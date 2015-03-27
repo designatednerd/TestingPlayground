@@ -76,7 +76,7 @@
     
     //This should return roughly immediately, but we still need
     //to wait a smidge to allow the block to execute.
-    [self waitForExpectationsWithTimeout:1 handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 
