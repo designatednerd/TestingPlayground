@@ -82,7 +82,7 @@
 
 + (NSString *)errorNoInternet
 {
-    return NSLocalizedString(@"You are not connected to the internet. Please reconnect and try again.", @"No Internet error")
+    return NSLocalizedString(@"You are not connected to the internet. Please reconnect and try again.", @"No Internet error");
 }
 
 @end

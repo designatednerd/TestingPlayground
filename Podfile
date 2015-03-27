@@ -4,6 +4,7 @@ pod 'Reachability', '~> 3.2'
 
 target :UITestingPlaygroundTests do
     pod 'DNSiOSLocalizationTestHelpers', '~> 1.0'
+    pod 'OCMockito', '~> 1.0'
 end
 
 target :UITestingPlayground_UITests do

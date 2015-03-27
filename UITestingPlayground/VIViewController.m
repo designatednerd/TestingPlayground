@@ -36,10 +36,10 @@ NSInteger const VIPasswordMinCharacters = 6;
     [self localizeStrings];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidAppear:animated];
+    
 }
 
 #pragma mark - Setup

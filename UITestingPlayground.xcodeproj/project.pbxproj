@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3342FA0118A1A8D7000578A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3342F9FF18A1A8D7000578A9 /* Localizable.strings */; };
+		339664FE1AC4AA2E0072AFE7 /* UITestingPlayground_MockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 339664FD1AC4AA2E0072AFE7 /* UITestingPlayground_MockTests.m */; };
+		339665011AC4B1010072AFE7 /* VITestingApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 339665001AC4B1010072AFE7 /* VITestingApplicationDelegate.m */; };
+		339665031AC4E5400072AFE7 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339665021AC4E5400072AFE7 /* Launch Screen.xib */; };
 		33BCBF66189C451C00479904 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF65189C451C00479904 /* Foundation.framework */; };
 		33BCBF68189C451C00479904 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF67189C451C00479904 /* CoreGraphics.framework */; };
 		33BCBF6A189C451C00479904 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF69189C451C00479904 /* UIKit.framework */; };
@@ -61,6 +64,10 @@
 		3342F9FC18A19FFE000578A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3342FA0018A1A8D7000578A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3342FA0218A1A8E5000578A9 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		339664FD1AC4AA2E0072AFE7 /* UITestingPlayground_MockTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestingPlayground_MockTests.m; sourceTree = "<group>"; };
+		339664FF1AC4B1010072AFE7 /* VITestingApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITestingApplicationDelegate.h; sourceTree = "<group>"; };
+		339665001AC4B1010072AFE7 /* VITestingApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITestingApplicationDelegate.m; sourceTree = "<group>"; };
+		339665021AC4E5400072AFE7 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		33BCBF62189C451C00479904 /* UITestingPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITestingPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33BCBF65189C451C00479904 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		33BCBF67189C451C00479904 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +192,8 @@
 			children = (
 				33BCBF74189C451C00479904 /* VIAppDelegate.h */,
 				33BCBF75189C451C00479904 /* VIAppDelegate.m */,
+				339664FF1AC4B1010072AFE7 /* VITestingApplicationDelegate.h */,
+				339665001AC4B1010072AFE7 /* VITestingApplicationDelegate.m */,
 				33BCBF9D189C47E600479904 /* VIFakeAPI.h */,
 				33BCBF9E189C47E600479904 /* VIFakeAPI.m */,
 				9B004DA21ABE4AF200A5C82F /* VIAccessibilityStrings.h */,
@@ -193,6 +202,7 @@
 				9B004DA61ABE4BDD00A5C82F /* VILocalizedStrings.m */,
 				33BCBF77189C451C00479904 /* Main_iPhone.storyboard */,
 				33BCBF7A189C451C00479904 /* Main_iPad.storyboard */,
+				339665021AC4E5400072AFE7 /* Launch Screen.xib */,
 				33BCBF7D189C451C00479904 /* VIViewController.h */,
 				33BCBF7E189C451C00479904 /* VIViewController.m */,
 				33BCBF80189C451C00479904 /* Images.xcassets */,
@@ -218,6 +228,7 @@
 			children = (
 				33BCBF93189C451C00479904 /* UITestingPlaygroundTests_NonUI.m */,
 				9B004DB51ABE5D4700A5C82F /* UITestingPlayground_LocalizationXCTest.m */,
+				339664FD1AC4AA2E0072AFE7 /* UITestingPlayground_MockTests.m */,
 				33BCBF8E189C451C00479904 /* Supporting Files */,
 			);
 			path = UITestingPlaygroundTests;
@@ -367,6 +378,7 @@
 				33BCBF81189C451C00479904 /* Images.xcassets in Resources */,
 				33BCBF79189C451C00479904 /* Main_iPhone.storyboard in Resources */,
 				33BCBF70189C451C00479904 /* InfoPlist.strings in Resources */,
+				339665031AC4E5400072AFE7 /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +502,7 @@
 				33BCBF7F189C451C00479904 /* VIViewController.m in Sources */,
 				9B004DA71ABE4BDD00A5C82F /* VILocalizedStrings.m in Sources */,
 				33BCBF9F189C47E600479904 /* VIFakeAPI.m in Sources */,
+				339665011AC4B1010072AFE7 /* VITestingApplicationDelegate.m in Sources */,
 				33BCBF76189C451C00479904 /* VIAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33BCBF94189C451C00479904 /* UITestingPlaygroundTests_NonUI.m in Sources */,
+				339664FE1AC4AA2E0072AFE7 /* UITestingPlayground_MockTests.m in Sources */,
 				9B004DB61ABE5D4700A5C82F /* UITestingPlayground_LocalizationXCTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,10 +672,10 @@
 			baseConfigurationReference = 6F5E187245C793768BB089A3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITestingPlayground/UITestingPlayground-Prefix.pch";
 				INFOPLIST_FILE = "UITestingPlayground/UITestingPlayground-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -672,10 +686,10 @@
 			baseConfigurationReference = D8F2B7270B5B235E1BFACA00 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITestingPlayground/UITestingPlayground-Prefix.pch";
 				INFOPLIST_FILE = "UITestingPlayground/UITestingPlayground-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

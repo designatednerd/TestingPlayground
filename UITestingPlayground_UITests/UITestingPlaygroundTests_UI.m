@@ -24,11 +24,13 @@
     [super beforeEach];
     
     //Reset the login and password views before restarting.
+    [tester waitForViewWithAccessibilityLabel:[VIAccessibilityStrings usernameTextField]];
     [tester clearTextFromViewWithAccessibilityLabel:[VIAccessibilityStrings usernameTextField]];
     [tester clearTextFromViewWithAccessibilityLabel:[VIAccessibilityStrings passwordTextField]];
 }
 
 #pragma mark - Convenience methods
+
 - (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password
 {
     [tester enterText:username intoViewWithAccessibilityLabel:[VIAccessibilityStrings usernameTextField]];
@@ -37,6 +39,7 @@
 }
 
 #pragma mark - Error String Checkers
+
 - (BOOL)errorTextLabel:(UILabel *)errorTextLabel hasText:(NSString *)textToCheckFor
 {
     NSRange textRange = [errorTextLabel.text rangeOfString:textToCheckFor];

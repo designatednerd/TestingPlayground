@@ -9,10 +9,19 @@
 #import <UIKit/UIKit.h>
 
 #import "VIAppDelegate.h"
+#import "VITestingApplicationDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([VIAppDelegate class]));
+        BOOL isRunningTests = (NSClassFromString(@"XCTestCase") != nil);
+        BOOL isRunningUITests = (NSClassFromString(@"KIFTestCase") != nil);
+        
+        Class appDelegateClass = [VIAppDelegate class];
+        if (isRunningTests && !isRunningUITests) { //We still want the normal app delegate for UI tests. 
+            appDelegateClass = [VITestingApplicationDelegate class];
+        }
+        
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass(appDelegateClass));
     }
 }

@@ -3,16 +3,22 @@ PODS:
   - KIF (3.2.0):
     - KIF/XCTest (= 3.2.0)
   - KIF/XCTest (3.2.0)
+  - OCHamcrest (4.1.1)
+  - OCMockito (1.4.0):
+    - OCHamcrest (~> 4.0)
   - Reachability (3.2)
 
 DEPENDENCIES:
   - DNSiOSLocalizationTestHelpers (~> 1.0)
   - KIF (~> 3.2)
+  - OCMockito (~> 1.0)
   - Reachability (~> 3.2)
 
 SPEC CHECKSUMS:
   DNSiOSLocalizationTestHelpers: 7d2e701af20e5408a6e49d1591ba11f86c46b04d
   KIF: 6f94a23566fd05b809f5d3bc5231a965b51121b9
+  OCHamcrest: af1c7c5ea345de69ea6c9c2958f65f3044e5c420
+  OCMockito: 991936bb775cc4c27f063d38f5e17b9161fbd21c
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
 
 COCOAPODS: 0.36.0

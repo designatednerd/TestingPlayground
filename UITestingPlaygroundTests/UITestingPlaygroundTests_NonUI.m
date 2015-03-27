@@ -22,16 +22,16 @@ NSTimeInterval const VIAPITimeout = 10;
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
     self.fakeAPI = [[VIFakeAPI alloc] init];
 }
 
 - (void)tearDown
 {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
     self.fakeAPI = nil;
+    [super tearDown];
 }
+
+#pragma mark - Actual Test
 
 - (void)testFakeAPIValidLogin
 {
@@ -110,5 +110,6 @@ NSTimeInterval const VIAPITimeout = 10;
     
     [self waitForExpectationsWithTimeout:VIAPITimeout handler:nil];
 }
+
 
 @end
