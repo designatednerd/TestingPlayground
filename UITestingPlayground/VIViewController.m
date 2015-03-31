@@ -70,13 +70,17 @@ NSInteger const VIPasswordMinCharacters = 6;
         [self.loginButton setTitle:[VILocalizedStrings loggingInText] forState:UIControlStateNormal];
         self.loginButton.enabled = NO;
         self.loginButton.backgroundColor = [self.loginButton.backgroundColor colorWithAlphaComponent:0.5];
-        [self.fakeAPI loginWithUsername:self.usernameTextField.text password:self.passwordTextField.text completion:^(BOOL success, NSError *error) {
-            if (success) {
-                [self loginSuccess];
-            } else {
-                [self loginFailedWithErrorDescription:error.localizedDescription];
-            }
-        }];
+        
+        __weak VIViewController *weakSelf = self;
+        [self.fakeAPI loginWithUsername:self.usernameTextField.text
+                               password:self.passwordTextField.text
+                             completion:^(BOOL success, NSError *error) {
+                                 if (success) {
+                                     [weakSelf loginSuccess];
+                                 } else {
+                                     [weakSelf loginFailedWithErrorDescription:error.localizedDescription];
+                                 }
+                             }];
     } else {
         self.errorTextLabel.text = errorString;
         self.errorTextLabel.hidden = NO;
