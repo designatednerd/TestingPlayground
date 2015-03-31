@@ -14,8 +14,8 @@
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        BOOL isRunningTests = (NSClassFromString(@"XCTestCase") != nil);
-        BOOL isRunningUITests = (NSClassFromString(@"KIFTestCase") != nil);
+        BOOL isRunningTests = (NSClassFromString(@"XCTestCase") != Nil);
+        BOOL isRunningUITests = (NSClassFromString(@"KIFTestCase") != Nil);
         
         Class appDelegateClass = [VIAppDelegate class];
         if (isRunningTests && !isRunningUITests) { //We still want the normal app delegate for UI tests. 
