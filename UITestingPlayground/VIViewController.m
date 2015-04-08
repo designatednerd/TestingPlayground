@@ -36,12 +36,6 @@ NSInteger const VIPasswordMinCharacters = 6;
     [self localizeStrings];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-}
-
 #pragma mark - Setup
 - (void)setupAccessibility
 {
