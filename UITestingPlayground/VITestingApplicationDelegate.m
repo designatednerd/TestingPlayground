@@ -18,6 +18,7 @@
     UILabel *testLabel = [[UILabel alloc] init];
     testLabel.translatesAutoresizingMaskIntoConstraints = NO;
     testLabel.text = @"TESTING WITHOUT UI!";
+    testLabel.textColor = [UIColor whiteColor];
     [testViewController.view addSubview:testLabel];
     [testViewController.view addConstraint:[NSLayoutConstraint constraintWithItem:testLabel
                                                                        attribute:NSLayoutAttributeCenterX
