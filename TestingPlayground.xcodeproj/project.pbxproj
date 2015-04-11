@@ -339,6 +339,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = VI;
+				LastTestingUpgradeCheck = 0630;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Ellen Shapiro";
 				TargetAttributes = {
@@ -745,7 +746,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0D09F1305E7BA5078EB053CB /* Pods-UITestingPlayground_UITests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UITestingPlayground.app/UITestingPlayground";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestingPlayground.app/TestingPlayground";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -772,7 +773,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DEE3CC92E0B72571B6E4213B /* Pods-UITestingPlayground_UITests.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UITestingPlayground.app/UITestingPlayground";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestingPlayground.app/TestingPlayground";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
