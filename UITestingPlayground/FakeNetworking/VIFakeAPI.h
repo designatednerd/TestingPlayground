@@ -16,6 +16,7 @@ FOUNDATION_EXPORT NSString * const VIValidLoginPassword;
 
 @interface VIFakeAPI : NSObject
 
+///Exposed so reachability can be mocked by tests. 
 @property (nonatomic) Reachability *reachability;
 
 - (void)loginWithUsername:(NSString *)username

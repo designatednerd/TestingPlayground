@@ -32,8 +32,6 @@
 		33FC5B33189FF7310027ED82 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF69189C451C00479904 /* UIKit.framework */; };
 		33FC5B43189FF7BE0027ED82 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33BCBF67189C451C00479904 /* CoreGraphics.framework */; };
 		33FC5B45189FF9460027ED82 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33FC5B44189FF9460027ED82 /* SenTestingKit.framework */; };
-		4EA2F9FF4D8C802DD2D51CA4 /* libPods-UITestingPlaygroundTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEFE2165A50E1D0FCD32690C /* libPods-UITestingPlaygroundTests.a */; };
-		72110718EC73A5761B76FD83 /* libPods-UITestingPlayground_UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7BE6088E6B9701D6413418 /* libPods-UITestingPlayground_UITests.a */; };
 		9B004DA41ABE4AF200A5C82F /* VIAccessibilityStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B004DA31ABE4AF200A5C82F /* VIAccessibilityStrings.m */; };
 		9B004DA71ABE4BDD00A5C82F /* VILocalizedStrings.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B004DA61ABE4BDD00A5C82F /* VILocalizedStrings.m */; };
 		9B004DB41ABE5C1900A5C82F /* TestingPlayground_UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B004DB01ABE5C1900A5C82F /* TestingPlayground_UITests.m */; };
@@ -107,8 +105,8 @@
 		9B004DA51ABE4BDD00A5C82F /* VILocalizedStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VILocalizedStrings.h; sourceTree = "<group>"; };
 		9B004DA61ABE4BDD00A5C82F /* VILocalizedStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VILocalizedStrings.m; sourceTree = "<group>"; };
 		9B004DAC1ABE5C1900A5C82F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		9B004DAD1ABE5C1900A5C82F /* TestingPlayground Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TestingPlayground Tests-Info.plist"; sourceTree = "<group>"; };
-		9B004DAE1ABE5C1900A5C82F /* TestingPlayground Tests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestingPlayground Tests-Prefix.pch"; sourceTree = "<group>"; };
+		9B004DAD1ABE5C1900A5C82F /* TestingPlayground_UITests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TestingPlayground_UITests-Info.plist"; sourceTree = "<group>"; };
+		9B004DAE1ABE5C1900A5C82F /* TestingPlayground_UITests-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestingPlayground_UITests-Prefix.pch"; sourceTree = "<group>"; };
 		9B004DB01ABE5C1900A5C82F /* TestingPlayground_UITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingPlayground_UITests.m; sourceTree = "<group>"; };
 		9B004DB51ABE5D4700A5C82F /* TestingPlayground_LocalizationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingPlayground_LocalizationTests.m; sourceTree = "<group>"; };
 		9BED00911AD58E90002FCB02 /* TestingPlayground_SuperBasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingPlayground_SuperBasicTests.m; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 				33BCBF88189C451C00479904 /* XCTest.framework in Frameworks */,
 				33BCBF8A189C451C00479904 /* UIKit.framework in Frameworks */,
 				33BCBF89189C451C00479904 /* Foundation.framework in Frameworks */,
-				4EA2F9FF4D8C802DD2D51CA4 /* libPods-UITestingPlaygroundTests.a in Frameworks */,
 				FA6D348A88B621C95F259978 /* libPods-TestingPlaygroundTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,7 +151,6 @@
 				33FC5B31189FF7310027ED82 /* XCTest.framework in Frameworks */,
 				33FC5B33189FF7310027ED82 /* UIKit.framework in Frameworks */,
 				33FC5B32189FF7310027ED82 /* Foundation.framework in Frameworks */,
-				72110718EC73A5761B76FD83 /* libPods-UITestingPlayground_UITests.a in Frameworks */,
 				EC26D33DF658FD8D1F6D4411 /* libPods-TestingPlayground_UITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +258,8 @@
 			isa = PBXGroup;
 			children = (
 				9B004DAB1ABE5C1900A5C82F /* InfoPlist.strings */,
-				9B004DAD1ABE5C1900A5C82F /* TestingPlayground Tests-Info.plist */,
-				9B004DAE1ABE5C1900A5C82F /* TestingPlayground Tests-Prefix.pch */,
+				9B004DAD1ABE5C1900A5C82F /* TestingPlayground_UITests-Info.plist */,
+				9B004DAE1ABE5C1900A5C82F /* TestingPlayground_UITests-Prefix.pch */,
 				9B004DB01ABE5C1900A5C82F /* TestingPlayground_UITests.m */,
 			);
 			path = UITestingPlayground_UITests;
@@ -699,6 +695,12 @@
 				GCC_PREFIX_HEADER = "UITestingPlayground/TestingPlayground-Prefix.pch";
 				INFOPLIST_FILE = "UITestingPlayground/TestingPlayground-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"Pods-Reachability\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
 				PRODUCT_NAME = TestingPlayground;
 				WRAPPER_EXTENSION = app;
 			};
@@ -713,6 +715,12 @@
 				GCC_PREFIX_HEADER = "UITestingPlayground/TestingPlayground-Prefix.pch";
 				INFOPLIST_FILE = "UITestingPlayground/TestingPlayground-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"Pods-Reachability\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
 				PRODUCT_NAME = TestingPlayground;
 				WRAPPER_EXTENSION = app;
 			};
@@ -735,6 +743,17 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "UITestingPlaygroundTests/TestingPlaygroundTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"Pods-TestingPlaygroundTests-DNSiOSLocalizationTestHelpers\"",
+					"-l\"Pods-TestingPlaygroundTests-OCHamcrest\"",
+					"-l\"Pods-TestingPlaygroundTests-OCMockito\"",
+					"-l\"Pods-TestingPlaygroundTests-Reachability\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"XCTest\"",
+				);
 				PRODUCT_NAME = TestingPlaygroundTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -754,6 +773,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITestingPlayground/TestingPlayground-Prefix.pch";
 				INFOPLIST_FILE = "UITestingPlaygroundTests/TestingPlaygroundTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"Pods-TestingPlaygroundTests-DNSiOSLocalizationTestHelpers\"",
+					"-l\"Pods-TestingPlaygroundTests-OCHamcrest\"",
+					"-l\"Pods-TestingPlaygroundTests-OCMockito\"",
+					"-l\"Pods-TestingPlaygroundTests-Reachability\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"XCTest\"",
+				);
 				PRODUCT_NAME = TestingPlaygroundTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -771,16 +801,13 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UITestingPlayground_UITests/TestingPlayground Tests-Prefix.pch";
+				GCC_PREFIX_HEADER = "UITestingPlayground_UITests/TestingPlayground_UITests-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "UITestingPlayground_UITests/TestingPlayground Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				INFOPLIST_FILE = "UITestingPlayground_UITests/TestingPlayground_UITests-Info.plist";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = TestingPlayground_UITests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -798,12 +825,9 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UITestingPlayground_UITests/TestingPlayground Tests-Prefix.pch";
-				INFOPLIST_FILE = "UITestingPlayground_UITests/TestingPlayground Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"$(inherited)",
-				);
+				GCC_PREFIX_HEADER = "UITestingPlayground_UITests/TestingPlayground_UITests-Prefix.pch";
+				INFOPLIST_FILE = "UITestingPlayground_UITests/TestingPlayground_UITests-Info.plist";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = TestingPlayground_UITests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
