@@ -71,7 +71,7 @@ NSTimeInterval const VIResponseDelay = 1.5f;
     }
 }
 
-- (void)fakeNetworkFailureLoginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion
+- (void)fakeAPITimeoutLoginWithUsername:(NSString *)username password:(NSString *)password completion:(VIFakeAPICompletion)completion
 {
     self.completion = completion;
     [self performSelector:@selector(loginFailure:)

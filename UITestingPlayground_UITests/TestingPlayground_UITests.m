@@ -229,7 +229,7 @@
     [tester waitForAbsenceOfViewWithAccessibilityLabel:[VIAccessibilityStrings errorTextLabel]];
     
     //Test that the login button does not re-enable after API success.
-    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginSuccessText]]).enabled, @"Login button disabled after API failure!");
+    XCTAssertFalse(((UIButton *)[tester waitForViewWithAccessibilityLabel:[VILocalizedStrings loginSuccessText]]).enabled, @"Login button enabled after successful login!");
 }
 
 @end

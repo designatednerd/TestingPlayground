@@ -23,7 +23,7 @@ FOUNDATION_EXPORT NSString * const VIValidLoginPassword;
                  password:(NSString *)password
                completion:(VIFakeAPICompletion)completion;
 
-- (void)fakeNetworkFailureLoginWithUsername:(NSString *)username
+- (void)fakeAPITimeoutLoginWithUsername:(NSString *)username
                                password:(NSString *)password
                              completion:(VIFakeAPICompletion)completion;
 

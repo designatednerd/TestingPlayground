@@ -92,13 +92,13 @@ NSTimeInterval const VIAPITimeout = 10;
     [self waitForExpectationsWithTimeout:VIAPITimeout handler:nil];
 }
 
-- (void)testNetworkTimeout
+- (void)testAPITimeout
 {
     //GIVEN: A user wants to log in
     XCTestExpectation *expectation = [self expectationWithDescription:@"Fake network timed out"];
     
     //WHEN: The user attempts to log in with valid credentials but the network times out
-    [self.api fakeNetworkFailureLoginWithUsername:VIValidLoginUserName
+    [self.api fakeAPITimeoutLoginWithUsername:VIValidLoginUserName
         password:VIValidLoginPassword
         completion:^(BOOL success, NSError *error) {
             
