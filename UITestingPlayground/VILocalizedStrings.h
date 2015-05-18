@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 /**
- * A class to centralize use and access of localized strings. 
+ * A class to centralize use and access of localized user-facing strings. 
  */
 @interface VILocalizedStrings : NSObject
 

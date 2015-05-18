@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * A class to centralize accessibility strings that are not displayed to most users,
+ * but which will be read aloud to visually imparied users in addition to being used 
+ * by KIF for UI Tests. 
+ */
 @interface VIAccessibilityStrings : NSObject
 
 + (NSString *)usernameTextField;
