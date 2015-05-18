@@ -41,6 +41,8 @@
 		9B38799B1ABE8CF200EC06F1 /* VIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BCBF7E189C451C00479904 /* VIViewController.m */; };
 		9BED00921AD58E90002FCB02 /* TestingPlayground_SuperBasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BED00911AD58E90002FCB02 /* TestingPlayground_SuperBasicTests.m */; };
 		A156493B5A8D8CE4317BC855 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DA1E7B0177B14ED7ED8AA0D /* libPods.a */; };
+		EC26D33DF658FD8D1F6D4411 /* libPods-TestingPlayground_UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB6249BDE2CA73B029CF7A16 /* libPods-TestingPlayground_UITests.a */; };
+		FA6D348A88B621C95F259978 /* libPods-TestingPlaygroundTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E4C1C4AB20B6171A4E7B4A9 /* libPods-TestingPlaygroundTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,10 +95,13 @@
 		33BCBF9E189C47E600479904 /* VIFakeAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VIFakeAPI.m; path = FakeNetworking/VIFakeAPI.m; sourceTree = "<group>"; };
 		33FC5B30189FF7310027ED82 /* TestingPlayground_UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestingPlayground_UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33FC5B44189FF9460027ED82 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3F1F41D29A9C675A035959FF /* Pods-TestingPlaygroundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlaygroundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestingPlaygroundTests/Pods-TestingPlaygroundTests.release.xcconfig"; sourceTree = "<group>"; };
 		51ED8CB4F8B154918DAA01C1 /* Pods-UITestingPlaygroundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITestingPlaygroundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITestingPlaygroundTests/Pods-UITestingPlaygroundTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6B7BE6088E6B9701D6413418 /* libPods-UITestingPlayground_UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITestingPlayground_UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F5E187245C793768BB089A3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8DA1E7B0177B14ED7ED8AA0D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E4C1C4AB20B6171A4E7B4A9 /* libPods-TestingPlaygroundTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestingPlaygroundTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98275138726CEF095DE436CB /* Pods-TestingPlayground_UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlayground_UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TestingPlayground_UITests/Pods-TestingPlayground_UITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B004DA21ABE4AF200A5C82F /* VIAccessibilityStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIAccessibilityStrings.h; sourceTree = "<group>"; };
 		9B004DA31ABE4AF200A5C82F /* VIAccessibilityStrings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIAccessibilityStrings.m; sourceTree = "<group>"; };
 		9B004DA51ABE4BDD00A5C82F /* VILocalizedStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VILocalizedStrings.h; sourceTree = "<group>"; };
@@ -109,8 +114,11 @@
 		9BED00911AD58E90002FCB02 /* TestingPlayground_SuperBasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingPlayground_SuperBasicTests.m; sourceTree = "<group>"; };
 		B81D6ED19B226E3F79D6D7C9 /* Pods-UITestingPlaygroundTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITestingPlaygroundTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITestingPlaygroundTests/Pods-UITestingPlaygroundTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8F2B7270B5B235E1BFACA00 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		D905BFB7AABB21A590E86BC9 /* Pods-TestingPlaygroundTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlaygroundTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestingPlaygroundTests/Pods-TestingPlaygroundTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEE3CC92E0B72571B6E4213B /* Pods-UITestingPlayground_UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITestingPlayground_UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITestingPlayground_UITests/Pods-UITestingPlayground_UITests.release.xcconfig"; sourceTree = "<group>"; };
+		E5E588F68A252189D189ACF5 /* Pods-TestingPlayground_UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestingPlayground_UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TestingPlayground_UITests/Pods-TestingPlayground_UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		EEFE2165A50E1D0FCD32690C /* libPods-UITestingPlaygroundTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITestingPlaygroundTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB6249BDE2CA73B029CF7A16 /* libPods-TestingPlayground_UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestingPlayground_UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,7 @@
 				33BCBF8A189C451C00479904 /* UIKit.framework in Frameworks */,
 				33BCBF89189C451C00479904 /* Foundation.framework in Frameworks */,
 				4EA2F9FF4D8C802DD2D51CA4 /* libPods-UITestingPlaygroundTests.a in Frameworks */,
+				FA6D348A88B621C95F259978 /* libPods-TestingPlaygroundTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +155,7 @@
 				33FC5B33189FF7310027ED82 /* UIKit.framework in Frameworks */,
 				33FC5B32189FF7310027ED82 /* Foundation.framework in Frameworks */,
 				72110718EC73A5761B76FD83 /* libPods-UITestingPlayground_UITests.a in Frameworks */,
+				EC26D33DF658FD8D1F6D4411 /* libPods-TestingPlayground_UITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +195,8 @@
 				6B7BE6088E6B9701D6413418 /* libPods-UITestingPlayground_UITests.a */,
 				EEFE2165A50E1D0FCD32690C /* libPods-UITestingPlaygroundTests.a */,
 				8DA1E7B0177B14ED7ED8AA0D /* libPods.a */,
+				8E4C1C4AB20B6171A4E7B4A9 /* libPods-TestingPlaygroundTests.a */,
+				FB6249BDE2CA73B029CF7A16 /* libPods-TestingPlayground_UITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -266,6 +278,10 @@
 				B81D6ED19B226E3F79D6D7C9 /* Pods-UITestingPlaygroundTests.release.xcconfig */,
 				6F5E187245C793768BB089A3 /* Pods.debug.xcconfig */,
 				D8F2B7270B5B235E1BFACA00 /* Pods.release.xcconfig */,
+				D905BFB7AABB21A590E86BC9 /* Pods-TestingPlaygroundTests.debug.xcconfig */,
+				3F1F41D29A9C675A035959FF /* Pods-TestingPlaygroundTests.release.xcconfig */,
+				E5E588F68A252189D189ACF5 /* Pods-TestingPlayground_UITests.debug.xcconfig */,
+				98275138726CEF095DE436CB /* Pods-TestingPlayground_UITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -446,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITestingPlayground_UITests/Pods-UITestingPlayground_UITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPlayground_UITests/Pods-TestingPlayground_UITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6E566D7E1D60CD1BB7B19330 /* Check Pods Manifest.lock */ = {
@@ -491,7 +507,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITestingPlaygroundTests/Pods-UITestingPlaygroundTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPlaygroundTests/Pods-TestingPlaygroundTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -704,7 +720,7 @@
 		};
 		33BCBF9B189C451C00479904 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 51ED8CB4F8B154918DAA01C1 /* Pods-UITestingPlaygroundTests.debug.xcconfig */;
+			baseConfigurationReference = D905BFB7AABB21A590E86BC9 /* Pods-TestingPlaygroundTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestingPlayground.app/TestingPlayground";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -727,7 +743,7 @@
 		};
 		33BCBF9C189C451C00479904 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B81D6ED19B226E3F79D6D7C9 /* Pods-UITestingPlaygroundTests.release.xcconfig */;
+			baseConfigurationReference = 3F1F41D29A9C675A035959FF /* Pods-TestingPlaygroundTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestingPlayground.app/TestingPlayground";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -746,7 +762,7 @@
 		};
 		33FC5B40189FF7310027ED82 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0D09F1305E7BA5078EB053CB /* Pods-UITestingPlayground_UITests.debug.xcconfig */;
+			baseConfigurationReference = E5E588F68A252189D189ACF5 /* Pods-TestingPlayground_UITests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestingPlayground.app/TestingPlayground";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -773,7 +789,7 @@
 		};
 		33FC5B41189FF7310027ED82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEE3CC92E0B72571B6E4213B /* Pods-UITestingPlayground_UITests.release.xcconfig */;
+			baseConfigurationReference = 98275138726CEF095DE436CB /* Pods-TestingPlayground_UITests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestingPlayground.app/TestingPlayground";
 				FRAMEWORK_SEARCH_PATHS = (
