@@ -111,4 +111,11 @@ static BOOL classTeardownFired;
     [self checkClassSetupFiredButNotTearDown];
 }
 
+- (void)testPerformanceExample
+{
+    [self measureBlock:^{
+        [self checkClassSetupFiredButNotTearDown];
+    }];
+}
+
 @end
