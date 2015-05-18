@@ -12,27 +12,27 @@
 
 + (NSString *)usernameTextField
 {
-    return @"Username Text Field";
+    return NSLocalizedString(@"Username Text Field", @"Username text field accessibility label");
 }
 
 + (NSString *)passwordTextField
 {
-    return @"Password Text Field";
+    return NSLocalizedString(@"Password Text Field", @"Password text field accessibility label");
 }
 
 + (NSString *)usernameErrorView
 {
-    return @"Username Error View";
+    return NSLocalizedString(@"Username Error View", @"Username error view accessibility label");
 }
 
 + (NSString *)passwordErrorView
 {
-    return @"Password Error View";
+    return NSLocalizedString(@"Password Error View", @"Password error view accessibility label");
 }
 
 + (NSString *)errorTextLabel
 {
-    return @"Error Text Label";
+    return NSLocalizedString(@"Error Text Label", @"Error text label accessibility label");
 }
 
 @end
