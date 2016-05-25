@@ -351,8 +351,8 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = VI;
-				LastTestingUpgradeCheck = 0630;
-				LastUpgradeCheck = 0620;
+				LastTestingUpgradeCheck = 0730;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Ellen Shapiro";
 				TargetAttributes = {
 					33BCBF85189C451C00479904 = {
@@ -630,6 +630,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -701,6 +702,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokalinteractive.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TestingPlayground;
 				WRAPPER_EXTENSION = app;
 			};
@@ -721,6 +723,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokalinteractive.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TestingPlayground;
 				WRAPPER_EXTENSION = app;
 			};
@@ -754,6 +757,7 @@
 					"-framework",
 					"\"XCTest\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokalinteractive.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TestingPlaygroundTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -784,6 +788,7 @@
 					"-framework",
 					"\"XCTest\"",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokalinteractive.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TestingPlaygroundTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -808,6 +813,7 @@
 				);
 				INFOPLIST_FILE = "UITestingPlayground_UITests/TestingPlayground_UITests-Info.plist";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokalinteractive.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TestingPlayground_UITests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -828,6 +834,7 @@
 				GCC_PREFIX_HEADER = "UITestingPlayground_UITests/TestingPlayground_UITests-Prefix.pch";
 				INFOPLIST_FILE = "UITestingPlayground_UITests/TestingPlayground_UITests-Info.plist";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vokalinteractive.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = TestingPlayground_UITests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
