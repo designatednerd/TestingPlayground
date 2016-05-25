@@ -1,9 +1,12 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import <OCHamcrest/HCDiagnosingMatcher.h>
 
 
+/*!
+ * @abstract Does executing a block throw an exception which satisfies a nested matcher?
+ */
 @interface HCThrowsException : HCDiagnosingMatcher
 
 - (id)initWithExceptionMatcher:(id)exceptionMatcher;
@@ -13,20 +16,21 @@
 
 FOUNDATION_EXPORT id HC_throwsException(id exceptionMatcher);
 
-/**
- throwsException(exceptionMatcher) -
- Matches if object is a block which, when executed, throws an exception satisfying a given matcher.
-
- @param exceptionMatcher  The matcher to satisfy when passed the exception.
-
- Example:
- @li @ref throwsException(instanceOf([NSException class]))
-
- (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
- @c HC_throwsException instead.)
-
- @ingroup object_matchers
-*/
-#ifdef HC_SHORTHAND
-    #define throwsException HC_throwsException
+#ifndef HC_DISABLE_SHORT_SYNTAX
+/*!
+ * @abstract Creates a matcher that matches when the examined object is a block which, when
+ * executed, throws an exception satisfying the specified matcher.
+ * @param exceptionMatcher The matcher to satisfy when passed the exception.
+ * @discussion
+ * <b>Example</b><br />
+ * <pre>assertThat(^{ [obj somethingBad]; }, throwsException(hasProperty(@"reason", @"EXPECTED REASON")))</pre>
+ *
+ * <b>Name Clash</b><br />
+ * In the event of a name clash, <code>#define HC_DISABLE_SHORT_SYNTAX</code> and use the synonym
+ * HC_throwsException instead.
+ */
+static inline id throwsException(id exceptionMatcher)
+{
+    return HC_throwsException(exceptionMatcher);
+}
 #endif

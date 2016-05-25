@@ -1,13 +1,8 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCIsTrueFalse.h"
 
-
-FOUNDATION_EXPORT id HC_isTrue(void)
-{
-    return [[HCIsTrue alloc] init];
-}
 
 @implementation HCIsTrue
 
@@ -19,19 +14,21 @@ FOUNDATION_EXPORT id HC_isTrue(void)
     return [item boolValue];
 }
 
-- (void)describeTo:(id<HCDescription>)description
+- (void)describeTo:(id <HCDescription>)description
 {
     [description appendText:@"true (non-zero)"];
 }
 
 @end
 
-#pragma mark -
 
-FOUNDATION_EXPORT id HC_isFalse(void)
+FOUNDATION_EXPORT id HC_isTrue(void)
 {
-    return [[HCIsFalse alloc] init];
+    return [[HCIsTrue alloc] init];
 }
+
+
+#pragma mark -
 
 @implementation HCIsFalse
 
@@ -43,9 +40,16 @@ FOUNDATION_EXPORT id HC_isFalse(void)
     return ![item boolValue];
 }
 
-- (void)describeTo:(id<HCDescription>)description
+- (void)describeTo:(id <HCDescription>)description
 {
     [description appendText:@"false (zero)"];
 }
 
 @end
+
+
+FOUNDATION_EXPORT id HC_isFalse(void)
+{
+    return [[HCIsFalse alloc] init];
+}
+

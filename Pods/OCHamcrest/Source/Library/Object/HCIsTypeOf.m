@@ -1,15 +1,10 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCIsTypeOf.h"
 
 
 @implementation HCIsTypeOf
-
-+ (instancetype)isTypeOf:(Class)type
-{
-    return [[self alloc] initWithType:type];
-}
 
 - (BOOL)matches:(id)item
 {
@@ -24,7 +19,7 @@
 @end
 
 
-id HC_isA(Class aClass)
+id HC_isA(Class expectedClass)
 {
-    return [HCIsTypeOf isTypeOf:aClass];
+    return [[HCIsTypeOf alloc] initWithClass:expectedClass];
 }

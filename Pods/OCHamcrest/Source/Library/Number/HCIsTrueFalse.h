@@ -1,43 +1,51 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import <OCHamcrest/HCBaseMatcher.h>
 
 
+/*!
+ * @abstract Matches true values.
+ */
 @interface HCIsTrue : HCBaseMatcher
 @end
 
+/*!
+ * @abstract Matches false values.
+ */
 @interface HCIsFalse : HCBaseMatcher
 @end
 
 
 FOUNDATION_EXPORT id HC_isTrue(void);
 
-/**
- isTrue() -
- Matches if object is equal to @c NSNumber with non-zero value.
-
- (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
- @c HC_isTrue instead.)
-
- @ingroup primitive_number_matchers
+#ifndef HC_DISABLE_SHORT_SYNTAX
+/*!
+ * @abstract Creates a matcher that matches when the examined object is an non-zero NSNumber.
+ * @discussion
+ * <b>Name Clash</b><br />
+ * In the event of a name clash, <code>#define HC_DISABLE_SHORT_SYNTAX</code> and use the synonym
+ * HC_isTrue instead.
  */
-#ifdef HC_SHORTHAND
-    #define isTrue() HC_isTrue()
+static inline id isTrue(void)
+{
+    return HC_isTrue();
+}
 #endif
 
 
 FOUNDATION_EXPORT id HC_isFalse(void);
 
-/**
- isFalse() -
- Matches if object is equal to @c NSNumber with zero value.
-
- (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
- @c HC_isFalse instead.)
-
- @ingroup primitive_number_matchers
+#ifndef HC_DISABLE_SHORT_SYNTAX
+/*!
+ * @abstract Creates a matcher that matches when the examined object is NSNumber zero.
+ * @discussion
+ * <b>Name Clash</b><br />
+ * In the event of a name clash, <code>#define HC_DISABLE_SHORT_SYNTAX</code> and use the synonym
+ * HC_isFalse instead.
 */
-#ifdef HC_SHORTHAND
-    #define isFalse() HC_isFalse()
+static inline id isFalse(void)
+{
+    return HC_isFalse();
+}
 #endif

@@ -1,34 +1,32 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import <Foundation/Foundation.h>
 
 #import <stdarg.h>
 
-@protocol HCMatcher;
 
+/*!
+ * @abstract Returns an array of values from a variable-length comma-separated list terminated
+ * by <code>nil</code>.
+ */
+FOUNDATION_EXPORT NSArray * HCCollectItems(id item, va_list args);
 
-/**
- Returns an array of values from a variable-length comma-separated list terminated by @c nil.
+/*!
+ * @abstract Returns an array of matchers from a variable-length comma-separated list terminated
+ * by <code>nil</code>.
+ * @discussion Each item is wrapped in HCWrapInMatcher to transform non-matcher items into equality
+ * matchers.
+ *
+ * <b>Deprecated:</b> Follow the example of HCAllOf.m and break this call into two steps:
+ * HCCollectItems, then HCWrapIntoMatchers. This will let you expose a new interface to your matcher
+ * that takes an NSArray.
+ */
+FOUNDATION_EXPORT NSArray * HCCollectMatchers(id item, va_list args) __attribute__((deprecated));
 
- @ingroup helpers
-*/
-FOUNDATION_EXPORT NSMutableArray *HCCollectItems(id item, va_list args);
-
-/**
- Returns an array of matchers from a variable-length comma-separated list terminated by @c nil.
-
- Each item is wrapped in HCWrapInMatcher to transform non-matcher items into equality matchers.
-
- @ingroup helpers
-*/
-FOUNDATION_EXPORT NSMutableArray *HCCollectMatchers(id item, va_list args);
-
-/**
- Returns an array of wrapped items from a variable-length comma-separated list terminated by @c nil.
-
- Each item is transformed by passing it to the given @c wrap function.
-
- @ingroup helpers
-*/
-FOUNDATION_EXPORT NSMutableArray *HCCollectWrappedItems(id item, va_list args, id (*wrap)(id));
+/*!
+ * @abstract Returns an array of matchers from a mixed array of items and matchers.
+ * @discussion Each item is wrapped in HCWrapInMatcher to transform non-matcher items into equality
+ * matchers.
+ */
+FOUNDATION_EXPORT NSArray * HCWrapIntoMatchers(NSArray *items);

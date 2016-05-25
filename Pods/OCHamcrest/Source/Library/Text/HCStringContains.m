@@ -1,15 +1,10 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCStringContains.h"
 
 
 @implementation HCStringContains
-
-+ (instancetype)stringContains:(NSString *)aString
-{
-    return [[self alloc] initWithSubstring:aString];
-}
 
 - (BOOL)matches:(id)item
 {
@@ -27,7 +22,7 @@
 @end
 
 
-id <HCMatcher> HC_containsString(NSString *aString)
+id <HCMatcher> HC_containsSubstring(NSString *substring)
 {
-    return [HCStringContains stringContains:aString];
+    return [[HCStringContains alloc] initWithSubstring:substring];
 }

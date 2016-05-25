@@ -1,5 +1,5 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 //  Contribution by Todd Farrell
 //
 
@@ -9,15 +9,10 @@
 
 
 @interface HCConformsToProtocol ()
-@property (readonly, nonatomic, strong) Protocol *protocol;
+@property (nonatomic, strong, readonly) Protocol *protocol;
 @end
 
 @implementation HCConformsToProtocol
-
-+ (instancetype)conformsTo:(Protocol *)protocol
-{
-    return [[self alloc] initWithProtocol:protocol];
-}
 
 - (instancetype)initWithProtocol:(Protocol *)protocol
 {
@@ -34,7 +29,7 @@
     return [item conformsToProtocol:self.protocol];
 }
 
-- (void)describeTo:(id<HCDescription>)description
+- (void)describeTo:(id <HCDescription>)description
 {
     [[description appendText:@"an object that conforms to "]
                   appendText:NSStringFromProtocol(self.protocol)];
@@ -45,5 +40,5 @@
 
 id HC_conformsTo(Protocol *aProtocol)
 {
-    return [HCConformsToProtocol conformsTo:aProtocol];
+    return [[HCConformsToProtocol alloc] initWithProtocol:aProtocol];
 }

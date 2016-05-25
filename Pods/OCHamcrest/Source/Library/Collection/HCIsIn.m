@@ -1,19 +1,14 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCIsIn.h"
 
 
 @interface HCIsIn ()
-@property (readonly, nonatomic, strong) id collection;
+@property (nonatomic, strong, readonly) id collection;
 @end
 
 @implementation HCIsIn
-
-+ (instancetype)isInCollection:(id)collection
-{
-    return [[self alloc] initWithCollection:collection];
-}
 
 - (instancetype)initWithCollection:(id)collection
 {
@@ -35,7 +30,7 @@
     return [self.collection containsObject:item];
 }
 
-- (void)describeTo:(id<HCDescription>)description
+- (void)describeTo:(id <HCDescription>)description
 {
     [[description appendText:@"one of "]
                   appendList:self.collection start:@"{" separator:@", " end:@"}"];
@@ -46,5 +41,5 @@
 
 id HC_isIn(id aCollection)
 {
-    return [HCIsIn isInCollection:aCollection];
+    return [[HCIsIn alloc] initWithCollection:aCollection];
 }

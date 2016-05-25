@@ -1,5 +1,5 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCIs.h"
 
@@ -7,15 +7,10 @@
 
 
 @interface HCIs ()
-@property (readonly, nonatomic, strong) id <HCMatcher> matcher;
+@property (nonatomic, strong, readonly) id <HCMatcher> matcher;
 @end
 
 @implementation HCIs
-
-+ (instancetype)is:(id <HCMatcher>)matcher
-{
-    return [[self alloc] initWithMatcher:matcher];
-}
 
 - (instancetype)initWithMatcher:(id <HCMatcher>)matcher
 {
@@ -30,12 +25,12 @@
     return [self.matcher matches:item];
 }
 
-- (void)describeMismatchOf:(id)item to:(id<HCDescription>)mismatchDescription
+- (void)describeMismatchOf:(id)item to:(id <HCDescription>)mismatchDescription
 {
     [self.matcher describeMismatchOf:item to:mismatchDescription];
 }
 
-- (void)describeTo:(id<HCDescription>)description
+- (void)describeTo:(id <HCDescription>)description
 {
     [description appendDescriptionOf:self.matcher];
 }
@@ -43,7 +38,7 @@
 @end
 
 
-id HC_is(id match)
+id HC_is(id value)
 {
-    return [HCIs is:HCWrapInMatcher(match)];
+    return [[HCIs alloc] initWithMatcher:HCWrapInMatcher(value)];
 }

@@ -51,7 +51,6 @@ return KIFTestStepResultWait; \
 } \
 })
 
-
 /*!
  @enum KIFTestStepResult
  @abstract Result codes from a test step.
@@ -98,11 +97,23 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock timeout:(NSTimeInterval)timeout;
 - (void)runBlock:(KIFTestExecutionBlock)executionBlock;
 
-
 /*!
  @discussion Attempts to run the test block similar to -runBlock:complete:timeout: but does not halt the test on completion, instead returning NO on failure and providing an error description to the optional error parameter.
  */
 - (BOOL)tryRunningBlock:(KIFTestExecutionBlock)executionBlock complete:(KIFTestCompletionBlock)completionBlock timeout:(NSTimeInterval)timeout error:(out NSError **)error;
+
+/*!
+ @method defaultAnimationWaitingTimeout
+ @abstract The default amount of time to wait for an animation to complete.
+ @discussion To change the default value of the timeout property, call +setDefaultAnimationWaitingTimeout: with a different value.
+ */
++ (NSTimeInterval)defaultAnimationWaitingTimeout;
+
+/*!
+ @method setDefaultAnimationWaitingTimeout:
+ @abstract Sets the default amount of time to wait for an animation to complete.
+ */
++ (void)setDefaultAnimationWaitingTimeout:(NSTimeInterval)newDefaultAnimationWaitingTimeout;
 
 /*!
  @method defaultTimeout
@@ -137,6 +148,8 @@ typedef void (^KIFTestCompletionBlock)(KIFTestStepResult result, NSError *error)
 - (void)fail;
 
 - (void)failWithError:(NSError *)error stopTest:(BOOL)stopTest;
+
+- (void)failWithMessage:(NSString *)message, ...;
 
 /*!
  @abstract Waits for a certain amount of time before returning.

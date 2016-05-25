@@ -1,6 +1,6 @@
 ![mockito](http://docs.mockito.googlecode.com/hg/latest/org/mockito/logo.jpg)
 
-[![Build Status](https://travis-ci.org/jonreid/OCMockito.svg?branch=master)](https://travis-ci.org/jonreid/OCMockito) [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.png?branch=master)](https://coveralls.io/r/jonreid/OCMockito?branch=master) [![Cocoapods Version](https://cocoapod-badges.herokuapp.com/v/OCMockito/badge.png)](http://cocoapods.org/?q=ocmockito)
+[![Build Status](https://travis-ci.org/jonreid/OCMockito.svg?branch=master)](https://travis-ci.org/jonreid/OCMockito) [![Coverage Status](https://coveralls.io/repos/jonreid/OCMockito/badge.svg?branch=master)](https://coveralls.io/r/jonreid/OCMockito?branch=master) [![Cocoapods Version](https://cocoapod-badges.herokuapp.com/v/OCMockito/badge.png)](http://cocoapods.org/pods/OCMockito)
 
 OCMockito is an iOS and Mac OS X implementation of Mockito, supporting creation,
 verification and stubbing of mock objects.
@@ -32,23 +32,20 @@ include any pods from their main targets:
 
 ```ruby
 target :MyTests, :exclusive => true do
-  pod 'OCMockito', '~> 1.0'
+  pod 'OCMockito', '~> 3.0'
 end
 ```
 
 Use the following imports:
 
-    #define HC_SHORTHAND
     #import <OCHamcrest/OCHamcrest.h>
-
-    #define MOCKITO_SHORTHAND
     #import <OCMockito/OCMockito.h>
 
 ### Prebuilt Frameworks
 
 Prebuilt binaries are available on GitHub for
 [OCMockito](https://github.com/jonreid/OCMockito/releases/). You will also need
-[OCHamcrest 4.0.1](https://github.com/hamcrest/OCHamcrest/releases/tag/v4.0.1).
+[OCHamcrest](https://github.com/hamcrest/OCHamcrest/releases/).
 The binaries are packaged as frameworks:
 
 * __OCMockitoIOS.framework__ for iOS development
@@ -62,10 +59,7 @@ destination group's folder". Then specify `-ObjC` in your "Other Linker Flags".
 
 Use the following imports:
 
-    #define HC_SHORTHAND
     #import <OCHamcrestIOS/OCHamcrestIOS.h>
-    
-    #define MOCKITO_SHORTHAND
     #import <OCMockitoIOS/OCMockitoIOS.h>
 
 
@@ -76,10 +70,7 @@ OCHamcrest.framework to your Products Directory.
 
 Use the following imports:
 
-    #define HC_SHORTHAND
     #import <OCHamcrest/OCHamcrest.h>
-    
-    #define MOCKITO_SHORTHAND
     #import <OCMockito/OCMockito.h>
 
 
@@ -88,17 +79,10 @@ Use the following imports:
 If you want to build OCMockito yourself, clone the repo, then
 
 ```sh
-$ git submodule update --init
 $ Frameworks/gethamcrest
 $ cd Source
 $ ./MakeDistribution.sh
 ```
-
-### Xcode 5 confused by verify:
-
-Xcode 5 currently seems to get confused about #defines, and may complain
-"Ambiguous expansion of macro 'verify'". If this happens, change your Build
-Settings to set "Enable Modules" to No.
  
 
 Let's verify some behavior!
@@ -195,8 +179,8 @@ To stub methods that return primitive scalars, box the scalars into NSValues:
 How do you stub methods that return structs?
 --------------------------------------------
 
-Use `willReturnStruct:objCType:` passing a pointer to your structure and the
-type created with the Objective-C `@encode()` compiler directive:
+Use `willReturnStruct:objCType:` passing a pointer to your structure and its
+type from the Objective-C `@encode()` compiler directive:
 
 ```obj-c
 SomeStruct aStruct = {...};
@@ -240,10 +224,10 @@ Typed arguments will issue a warning that the matcher is the wrong type. Just
 cast the matcher to `id`.
 
 
-How do you specify matchers for primitive arguments?
-----------------------------------------------------
+How do you specify matchers for non-object arguments?
+-----------------------------------------------------
 
-To stub a method that takes a primitive argument but specify a matcher, invoke
+To stub a method that takes a non-object argument but specify a matcher, invoke
 the method with a dummy argument, then call `-withMatcher:forArgument:`
 
 ```obj-c
@@ -259,7 +243,11 @@ Use the shortcut `-withMatcher:` to specify a matcher for a single argument:
 ```
 
 These methods are also available to specify matchers for verification. Just call
-them after `verify(…)` but before the invocation you want to verify.
+them after `verify(…)` but before the invocation you want to verify:
+
+```obj-c
+[[verify(mockArray) withMatcher:greaterThan(@5])] removeObjectAtIndex:0];
+```
 
 
 Verifying exact number of invocations / at least x / never
@@ -283,34 +271,42 @@ Verifying exact number of invocations / at least x / never
 // verify using never(), which is an alias for times(0)
 [verifyCount(mockArray, never()) addObject:@"never happened"];
 
-// verify using atLeast
+// verify using atLeast()/atMost()
 [verifyCount(mockArray, atLeastOnce()) addObject:@"at least once"];
 [verifyCount(mockArray, atLeast(2)) addObject:@"at least twice"];
+[verifyCount(mockArray, atMost(5)) addObject:@"at most five times"];
 ```
 
 
 Capturing arguments for further assertions
 ------------------------------------------
 
-OCMockito verifies argument values by using any provided OCHamcrest matchers,
-with the default matcher being `equalTo` to test for equality. This is the
-recommended way of matching arguments because it makes tests clean and simple.
-In some situations though, it's helpful to assert on certain arguments after the
-actual verification. For example:
+OCMockito verifies argument values using OCHamcrest matchers; non-matcher
+arguments are implicitly wrapped in the `equalTo` matcher to test for equality.
+In some situations though, it's helpful to capture an argument so you can send
+it another message.
+
+OCHamcrest provides a special matcher for this purpose: HCArgumentCaptor.
+Specify it as an argument, then query it with either the `value` or `allValues`
+properties.
+
+For example, you may want to send the captured argument a message to query its
+state:
 
 ```obj-c
-MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
-[verify(mockObject) doSomething:[argument capture]];
-assertThat([[argument value] nameAtIndex:0], is(@"Jon"));
+HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
+[verify(mockObject) doSomething:(id)argument];
+assertThat([argument.value nameAtIndex:0], is(@"Jon"));
 ```
 
-Capturing arguments is especially handy for block arguments. You can capture a
-block, then invoke it within your test:
+Capturing arguments is especially handy for block arguments. Capture the
+argument, cast it to the block type, then invoke the block directly to simulate
+the ways it will be called by production code:
 
 ```obj-c
-MKTArgumentCaptor *argument = [[MKTArgumentCaptor alloc] init];
-[verify(mockArray) sortUsingComparator:[argument capture]];
-NSComparator block = [argument value];
+HCArgumentCaptor *argument = [[HCArgumentCaptor alloc] init];
+[verify(mockArray) sortUsingComparator:(id)argument];
+NSComparator block = argument.value;
 assertThat(@(block(@"a", @"z")), is(@(NSOrderedAscending)));
 ```
 
@@ -338,9 +334,9 @@ Stubbing with blocks
 --------------------
 
 We recommend using simple stubbing with `willReturn:` or `willThrow:` only. But
-`willDo:` using a block can sometimes be helpful. The block can call
-`mkt_arguments` (from NSInvocation+OCMockito.h) on the invocation to get the
-arguments. Whatever the block returns will be used as the stubbed return value.
+`willDo:` using a block can sometimes be helpful. The block can easily access
+invocation arguments by calling `mkt_arguments` from NSInvocation+OCMockito.h.
+Whatever the block returns will be used as the stubbed return value.
 
 ```obj-c
 [[given([mockObject someMethod:anything()]) willDo:^id (NSInvocation *invocation){
@@ -352,10 +348,13 @@ arguments. Whatever the block returns will be used as the stubbed return value.
 NSLog(@"%@", [mockObject someMethod:@2]);
 ```
 
+You can stub a void method with a block by using `givenVoid` instead of `given`.
 
-Fixing retain cycles
---------------------
 
-If you have a situation where the `-dealloc` of your System Under Test is not
-called when you nil out your SUT, call `-reset` on your mock object (probably
-from `tearDown`).
+Problems with dealloc
+---------------------
+
+Use `stopMocking(…)` if a `-dealloc` of your System Under Test is trying to
+message an object that is mocked. It disables message handling on the mock and
+frees its retained arguments. This prevents retain cycles and crashes during
+test clean-up. See StopMockingTests.m for an example.

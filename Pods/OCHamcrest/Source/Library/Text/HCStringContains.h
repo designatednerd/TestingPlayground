@@ -1,39 +1,35 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import <OCHamcrest/HCSubstringMatcher.h>
 
 
+/*!
+ * @abstract Tests if string that contains a substring.
+ */
 @interface HCStringContains : HCSubstringMatcher
-
-+ (id)stringContains:(NSString *)aSubstring;
-
 @end
 
 
-FOUNDATION_EXPORT id HC_containsString(NSString *aSubstring);
+FOUNDATION_EXPORT id HC_containsSubstring(NSString *substring);
 
-/**
-containsString(aString) -
- Matches if object is a string containing a given string.
-
- @param aString  The string to search for. This value must not be @c nil.
-
- This matcher first checks whether the evaluated object is a string. If so, it checks whether it
- contains @a aString.
-
- Example:
-
- @par
- @ref containsString(@"def")
-
- will match "abcdefg".
-
- (In the event of a name clash, don't \#define @c HC_SHORTHAND and use the synonym
- @c HC_containsString instead.)
-
- @ingroup text_matchers
+#ifndef HC_DISABLE_SHORT_SYNTAX
+/*!
+ * @abstract Creates a matcher that matches when the examined object is a string containing the
+ * specified substring anywhere.
+ * @param substring The string to search for. (Must not be <code>nil</code>.)
+ * @discussion The matcher invokes <code>-rangeOfString:</code> on the examined object, passing the
+ * specified <em>substring</em> and matching if it is found.
+ *
+ * <b>Example</b><br />
+ * <pre>assertThat(\@"myStringOfNote", containsSubstring(\@"ring"))</pre>
+ *
+ * <b>Name Clash</b><br />
+ * In the event of a name clash, <code>#define HC_DISABLE_SHORT_SYNTAX</code> and use the synonym
+ * HC_containsSubstring instead.
  */
-#ifdef HC_SHORTHAND
-    #define containsString HC_containsString
+static inline id containsSubstring(NSString *substring)
+{
+    return HC_containsSubstring(substring);
+}
 #endif

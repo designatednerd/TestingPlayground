@@ -1,15 +1,10 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCStringEndsWith.h"
 
 
 @implementation HCStringEndsWith
-
-+ (instancetype)stringEndsWith:(NSString *)aString
-{
-    return [[self alloc] initWithSubstring:aString];
-}
 
 - (BOOL)matches:(id)item
 {
@@ -27,7 +22,7 @@
 @end
 
 
-id HC_endsWith(NSString *aString)
+id HC_endsWith(NSString *suffix)
 {
-    return [HCStringEndsWith stringEndsWith:aString];
+    return [[HCStringEndsWith alloc] initWithSubstring:suffix];
 }

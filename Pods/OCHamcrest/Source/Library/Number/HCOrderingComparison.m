@@ -1,28 +1,17 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCOrderingComparison.h"
 
 
 @interface HCOrderingComparison ()
-@property (readonly, nonatomic, strong) id expected;
-@property (readonly, nonatomic, assign) NSComparisonResult minCompare;
-@property (readonly, nonatomic, assign) NSComparisonResult maxCompare;
-@property (readonly, nonatomic, copy) NSString *comparisonDescription;
+@property (nonatomic, strong, readonly) id expected;
+@property (nonatomic, assign, readonly) NSComparisonResult minCompare;
+@property (nonatomic, assign, readonly) NSComparisonResult maxCompare;
+@property (nonatomic, copy, readonly) NSString *comparisonDescription;
 @end
 
 @implementation HCOrderingComparison
-
-+ (instancetype)compare:(id)expectedValue
-             minCompare:(NSComparisonResult)min
-             maxCompare:(NSComparisonResult)max
-  comparisonDescription:(NSString *)description
-{
-    return [[self alloc] initComparing:expectedValue
-                            minCompare:min
-                            maxCompare:max
-                 comparisonDescription:description];
-}
 
 - (instancetype)initComparing:(id)expectedValue
                    minCompare:(NSComparisonResult)min
@@ -64,7 +53,7 @@
     return self.minCompare <= compare && compare <= self.maxCompare;
 }
 
-- (void)describeTo:(id<HCDescription>)description
+- (void)describeTo:(id <HCDescription>)description
 {
     [[[[description appendText:@"a value "]
                     appendText:self.comparisonDescription]
@@ -75,34 +64,34 @@
 @end
 
 
-id HC_greaterThan(id aValue)
+id HC_greaterThan(id value)
 {
-    return [HCOrderingComparison compare:aValue
-                              minCompare:NSOrderedAscending
-                              maxCompare:NSOrderedAscending
-                   comparisonDescription:@"greater than"];
+    return [[HCOrderingComparison alloc] initComparing:value
+                                            minCompare:NSOrderedAscending
+                                            maxCompare:NSOrderedAscending
+                                 comparisonDescription:@"greater than"];
 }
 
-id HC_greaterThanOrEqualTo(id aValue)
+id HC_greaterThanOrEqualTo(id value)
 {
-    return [HCOrderingComparison compare:aValue
-                              minCompare:NSOrderedAscending
-                              maxCompare:NSOrderedSame
-                   comparisonDescription:@"greater than or equal to"];
+    return [[HCOrderingComparison alloc] initComparing:value
+                                            minCompare:NSOrderedAscending
+                                            maxCompare:NSOrderedSame
+                                 comparisonDescription:@"greater than or equal to"];
 }
 
-id HC_lessThan(id aValue)
+id HC_lessThan(id value)
 {
-    return [HCOrderingComparison compare:aValue
-                              minCompare:NSOrderedDescending
-                              maxCompare:NSOrderedDescending
-                   comparisonDescription:@"less than"];
+    return [[HCOrderingComparison alloc] initComparing:value
+                                            minCompare:NSOrderedDescending
+                                            maxCompare:NSOrderedDescending
+                                 comparisonDescription:@"less than"];
 }
 
-id HC_lessThanOrEqualTo(id aValue)
+id HC_lessThanOrEqualTo(id value)
 {
-    return [HCOrderingComparison compare:aValue
-                              minCompare:NSOrderedSame
-                              maxCompare:NSOrderedDescending
-                   comparisonDescription:@"less than or equal to"];
+    return [[HCOrderingComparison alloc] initComparing:value
+                                            minCompare:NSOrderedSame
+                                            maxCompare:NSOrderedDescending
+                                 comparisonDescription:@"less than or equal to"];
 }

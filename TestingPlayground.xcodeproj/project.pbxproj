@@ -294,6 +294,7 @@
 				33BCBF5F189C451C00479904 /* Frameworks */,
 				33BCBF60189C451C00479904 /* Resources */,
 				D2296B9BF08B30B8313C40ED /* Copy Pods Resources */,
+				406DC1C8056B76606930C08A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,6 +314,7 @@
 				33BCBF83189C451C00479904 /* Frameworks */,
 				33BCBF84189C451C00479904 /* Resources */,
 				D69A9046B88B718303998AB4 /* Copy Pods Resources */,
+				5F141AC095F7FA0A9ACE442A /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,6 +335,7 @@
 				33FC5B2D189FF7310027ED82 /* Frameworks */,
 				33FC5B2E189FF7310027ED82 /* Resources */,
 				37D08A2AB79D0B783258E0A6 /* Copy Pods Resources */,
+				DF2FBA9727331FD4001E4EE9 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -461,6 +464,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPlayground_UITests/Pods-TestingPlayground_UITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		406DC1C8056B76606930C08A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5F141AC095F7FA0A9ACE442A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPlaygroundTests/Pods-TestingPlaygroundTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6E566D7E1D60CD1BB7B19330 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -504,6 +537,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPlaygroundTests/Pods-TestingPlaygroundTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF2FBA9727331FD4001E4EE9 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestingPlayground_UITests/Pods-TestingPlayground_UITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -694,6 +742,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITestingPlayground/TestingPlayground-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "UITestingPlayground/TestingPlayground-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = (
@@ -715,6 +764,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UITestingPlayground/TestingPlayground-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "UITestingPlayground/TestingPlayground-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = (
@@ -735,7 +785,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestingPlayground.app/TestingPlayground";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -770,7 +819,6 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestingPlayground.app/TestingPlayground";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);

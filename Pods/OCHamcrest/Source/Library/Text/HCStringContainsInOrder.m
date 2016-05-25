@@ -1,34 +1,38 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCStringContainsInOrder.h"
 
 #import "HCCollect.h"
 
 
-@implementation HCStringContainsInOrder
-
-+ (instancetype)containsInOrder:(NSArray *)substringList
+static void requireElementsToBeStrings(NSArray *array)
 {
-    return [[self alloc] initWithSubstrings:substringList];
+    for (id element in array)
+    {
+        if (![element isKindOfClass:[NSString class]])
+        {
+            @throw [NSException exceptionWithName:@"NotAString"
+                                           reason:@"Arguments must be strings"
+                                         userInfo:nil];
+        }
+    }
 }
 
-- (instancetype)initWithSubstrings:(NSArray *)substringList
+
+@interface HCStringContainsInOrder ()
+@property (nonatomic, copy, readonly) NSArray *substrings;
+@end
+
+@implementation HCStringContainsInOrder
+
+- (instancetype)initWithSubstrings:(NSArray *)substrings
 {
     self = [super init];
     if (self)
     {
-        for (id substring in substringList)
-        {
-            if (![substring isKindOfClass:[NSString class]])
-            {
-                @throw [NSException exceptionWithName:@"NotAString"
-                                               reason:@"Arguments must be strings"
-                                             userInfo:nil];
-            }
-        }
-
-        substrings = substringList;
+        requireElementsToBeStrings(substrings);
+        _substrings = [substrings copy];
     }
     return self;
 }
@@ -39,7 +43,7 @@
         return NO;
 
     NSRange searchRange = NSMakeRange(0, [item length]);
-    for (NSString *substring in substrings)
+    for (NSString *substring in self.substrings)
     {
         NSRange substringRange = [item rangeOfString:substring options:0 range:searchRange];
         if (substringRange.location == NSNotFound)
@@ -50,19 +54,25 @@
     return YES;
 }
 
-- (void)describeTo:(id<HCDescription>)description
+- (void)describeTo:(id <HCDescription>)description
 {
-    [description appendList:substrings start:@"a string containing " separator:@", " end:@" in order"];
+    [description appendList:self.substrings start:@"a string containing " separator:@", " end:@" in order"];
 }
 
 @end
 
-id HC_stringContainsInOrder(NSString *substring, ...)
+
+id HC_stringContainsInOrderIn(NSArray *substrings)
+{
+    return [[HCStringContainsInOrder alloc] initWithSubstrings:substrings];
+}
+
+id HC_stringContainsInOrder(NSString *substrings, ...)
 {
     va_list args;
-    va_start(args, substring);
-    NSArray *substrings = HCCollectItems(substring, args);
+    va_start(args, substrings);
+    NSArray *array = HCCollectItems(substrings, args);
     va_end(args);
 
-    return [HCStringContainsInOrder containsInOrder:substrings];
+    return HC_stringContainsInOrderIn(array);
 }

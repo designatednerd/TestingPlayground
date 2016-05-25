@@ -1,5 +1,5 @@
 //  OCHamcrest by Jon Reid, http://qualitycoding.org/about/
-//  Copyright 2014 hamcrest.org. See LICENSE.txt
+//  Copyright 2016 hamcrest.org. See LICENSE.txt
 
 #import "HCDescribedAs.h"
 
@@ -15,7 +15,7 @@
     int decimal = 0;
     BOOL readDigit = NO;
 
-    NSUInteger length = [self length];
+    NSUInteger length = self.length;
     NSUInteger index;
     for (index = 0; index < length; ++index)
     {
@@ -39,22 +39,12 @@
 
 
 @interface HCDescribedAs ()
-@property (readonly, nonatomic, copy) NSString *descriptionTemplate;
-@property (readonly, nonatomic, strong) id <HCMatcher> matcher;
-@property (readonly, nonatomic, copy) NSArray *values;
+@property (nonatomic, copy, readonly) NSString *descriptionTemplate;
+@property (nonatomic, strong, readonly) id <HCMatcher> matcher;
+@property (nonatomic, copy, readonly) NSArray *values;
 @end
 
-
 @implementation HCDescribedAs
-
-+ (instancetype)describedAs:(NSString *)description
-                 forMatcher:(id <HCMatcher>)matcher
-                 overValues:(NSArray *)templateValues
-{
-    return [[self alloc] initWithDescription:description
-                                  forMatcher:matcher
-                                  overValues:templateValues];
-}
 
 - (instancetype)initWithDescription:(NSString *)description
                          forMatcher:(id <HCMatcher>)matcher
@@ -75,12 +65,12 @@
     return [self.matcher matches:item];
 }
 
-- (void)describeMismatchOf:(id)item to:(id<HCDescription>)mismatchDescription
+- (void)describeMismatchOf:(id)item to:(id <HCDescription>)mismatchDescription
 {
     [self.matcher describeMismatchOf:item to:mismatchDescription];
 }
 
-- (void)describeTo:(id<HCDescription>)description
+- (void)describeTo:(id <HCDescription>)description
 {
     NSArray *components = [self.descriptionTemplate componentsSeparatedByString:@"%"];
     BOOL firstComponent = YES;
@@ -125,5 +115,7 @@ id HC_describedAs(NSString *description, id <HCMatcher> matcher, ...)
     }
     va_end(args);
 
-    return [HCDescribedAs describedAs:description forMatcher:matcher overValues:valueList];
+    return [[HCDescribedAs alloc] initWithDescription:description
+                                           forMatcher:matcher
+                                           overValues:valueList];
 }
