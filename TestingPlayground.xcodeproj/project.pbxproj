@@ -745,7 +745,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-l\"Pods-Reachability\"",
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
@@ -767,7 +766,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-l\"Pods-Reachability\"",
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
@@ -795,10 +793,6 @@
 				INFOPLIST_FILE = "UITestingPlaygroundTests/TestingPlaygroundTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-l\"Pods-TestingPlaygroundTests-DNSiOSLocalizationTestHelpers\"",
-					"-l\"Pods-TestingPlaygroundTests-OCHamcrest\"",
-					"-l\"Pods-TestingPlaygroundTests-OCMockito\"",
-					"-l\"Pods-TestingPlaygroundTests-Reachability\"",
 					"-framework",
 					"\"SystemConfiguration\"",
 					"-framework",
@@ -825,10 +819,6 @@
 				INFOPLIST_FILE = "UITestingPlaygroundTests/TestingPlaygroundTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-l\"Pods-TestingPlaygroundTests-DNSiOSLocalizationTestHelpers\"",
-					"-l\"Pods-TestingPlaygroundTests-OCHamcrest\"",
-					"-l\"Pods-TestingPlaygroundTests-OCMockito\"",
-					"-l\"Pods-TestingPlaygroundTests-Reachability\"",
 					"-framework",
 					"\"SystemConfiguration\"",
 					"-framework",
